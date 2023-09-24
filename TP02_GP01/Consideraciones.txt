@@ -1,1 +1,0 @@
-Profe, el pryecto esta hecho en NetBeans, asique no deveria haber problemas para complilar y ejecutar
