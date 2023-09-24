@@ -1,0 +1,14 @@
+<form action= "/numerosCal" method="get">
+    <div class = "form-group">
+        <label for="palabra">NUMEROS</label>
+        <input id="a" name="a" class="form-control" type="number" value="$!{a}">
+        <input id="b" name="b" class="form-control" type="number" value="$!{b}">
+        <input id="c" name="c" class="form-control" type="number" value="$!{c}">
+        <input id="d" name="d" class="form-control" type="number" value="$!{d}">
+        <input id="e" name="e" class="form-control" type="number" value="$!{e}">
+        <input id="f" name="f" class="form-control" type="number" value="$!{f}">
+
+    </div>
+    <button type="submit" name="idButton" id="idButton" value="true">Ordenar<i class="fa-solid fa-paper-plane"></i></button>
+    <button type="submit" name="idButton" id="idButton" value="false">Desordenar<i class="fa-solid fa-paper-plane"></i></button>
+</form>

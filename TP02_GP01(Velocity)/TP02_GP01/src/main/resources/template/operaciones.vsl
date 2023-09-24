@@ -1,0 +1,12 @@
+<div>
+
+    #if($op == "+")   
+        La suma de $a + $b es igual $RES
+    #elseif($op == "-") 
+        La resta de $a - $b es igual $RES
+    #else 
+        Operador invalido
+    #end
+
+
+</div>

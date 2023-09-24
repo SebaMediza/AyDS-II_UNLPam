@@ -1,0 +1,8 @@
+<div>
+    La palabra $palabra: 
+    #if($RES)
+        Es palindromo
+    #else
+        No es palindromo
+    #end
+</div>

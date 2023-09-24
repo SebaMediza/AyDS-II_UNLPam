@@ -1,0 +1,7 @@
+<form action= "/periareaCal" method="get">
+    <div class = "form-group">
+        <label for="palabra">Radio</label>
+        <input id="radio" name="radio" class="form-control" type="number" value="$!{radio}">
+    </div>
+    <button type="submit">Calcular perimetro y area <i class="fa-solid fa-paper-plane"></i></button>
+</form>

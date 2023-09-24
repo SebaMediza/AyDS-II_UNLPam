@@ -1,0 +1,7 @@
+<form action= "/esPalindromo" method="get">
+    <div class = "form-group">
+        <label for="palabra">Palabra</label>
+        <input id="palabra" name="palabra" class="form-control" type="text" value="$!{palabra}">
+    </div>
+    <button type="submit">Chequear palabra <i class="fa-solid fa-paper-plane"></i></button>
+</form>

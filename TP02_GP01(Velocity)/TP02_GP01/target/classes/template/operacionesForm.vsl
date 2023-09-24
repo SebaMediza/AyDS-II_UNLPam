@@ -1,0 +1,9 @@
+<form action= "/operacionesCal" method="get">
+    <div class = "form-group">
+        <label for="palabra">Calcular</label>
+        <input id="a" name="a" class="form-control" type="number" value="$!{a}">
+        <input id="op" name="op" class="form-control" type="text" value="$!{op}">
+        <input id="b" name="b" class="form-control" type="number" value="$!{b}">
+    </div>
+    <button type="submit">Calcular perimetro y area <i class="fa-solid fa-paper-plane"></i></button>
+</form>
