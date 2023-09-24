@@ -16,6 +16,8 @@ import java.lang.reflect.Type;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+
+@SuppressWarnings("unchecked")
 public class Controller {
 
     //palindromo
@@ -150,6 +152,7 @@ public class Controller {
     };
     
 
+    @SuppressWarnings("rawtypes")
     public static Route dolar = (Request request, Response response) -> {
         Ejercicios ej = new Ejercicios();
         
@@ -172,5 +175,12 @@ public class Controller {
     public static Route provincias = (Request request, Response response) -> {
         Ejercicios ej = new Ejercicios();
         return ej.provinciasArgentinas();
-    };    
+    };
+    
+    @SuppressWarnings("rawtypes")
+    public static Route calcu = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        model.put("template","template/calcu.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
+    };
 }
