@@ -20,6 +20,12 @@ public class Ejercicios {
 
     private String casa, nombre, fechaActualizacion;
     private float compra, venta;
+
+    private String equipo1 = "";
+    private String equipo2 = "";
+    private String resultado = "";
+    private String ronda = "";
+    private boolean jugado = true;
     
     final int policia = 911;
     final int emergenciasMedicas = 107;
@@ -182,5 +188,12 @@ public class Ejercicios {
         return json;
     }
 
+    public void Partido(String e1, String e2, String res, String ronda, boolean jugado){
+        this.equipo1 = e1;
+        this.equipo2 = e2;
+        this.resultado = res;
+        this.ronda = ronda;
+        this.jugado = jugado; 
+    } 
     
 }

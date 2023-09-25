@@ -1,0 +1,17 @@
+<CENTER>
+    <STYLE>
+        .table{
+           width: 100%;
+        }
+    </STYLE> 
+    <TABLE class= "table">
+        #foreach( $p in $par )
+            <TR>
+                <TD>Equipo 1: $p.getEquipo1() </TD> 
+                <TD>Equipo 2: $p.getEquipo2() </TD>
+                <TD>Resultado: $p.getResultado() </TD>
+                <TD>Ronda: $p.getRonda() </TD>
+                <TD>Fue jugado: $p.jugado() </TD>
+            </TR>
+        #end
+    </TABLE>

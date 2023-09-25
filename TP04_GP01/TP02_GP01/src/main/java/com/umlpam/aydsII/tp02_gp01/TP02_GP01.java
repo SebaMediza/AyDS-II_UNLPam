@@ -27,5 +27,8 @@ public class TP02_GP01 {
         get("/dolar", Controller.dolar);
 
         get("/provincias", Controller.provincias);
+
+        get("/partidos", Controller.partidos);
+        get("/mostrarPartidos", Controller.mostrarPartidos);
     }
 }
