@@ -12,14 +12,15 @@ import java.util.List;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+@SuppressWarnings("unchecked")
 public class Controller {
-
     public static Route numerosForm = (Request request, Response response)->{
         HashMap<String, String> model = new HashMap<>();
-       
+        
         model.put("template","template/numerosForm.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };
+    @SuppressWarnings("rawtypes")
     public static Route numeros = (Request request, Response response) -> {
         Numeros num = new Numeros();
         int a = Integer.parseInt(request.queryParams("a"));

@@ -1,0 +1,7 @@
+<div>
+    #if($idButton)
+        La lista ordenada es $RES
+    #else
+        La lista desordenada es $RES
+    #end
+</div>
