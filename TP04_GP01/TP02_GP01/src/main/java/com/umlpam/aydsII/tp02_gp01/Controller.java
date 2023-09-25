@@ -183,4 +183,25 @@ public class Controller {
         model.put("template","template/calcu.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };
+
+    public static Route partidos = (Request req, Response res) ->{
+        HashMap<String, String> model = new HashMap<>();
+
+        model.put("template", "template/partidoForm.vsl");
+       
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));        
+    };
+
+    public static Route mostrarPartidos = (Request req, Response res) ->{
+        PartidoDAO pDAO = new PartidoDAO();
+        List<Ejercicios> p = pDAO.getPartidos(req.queryParams("equipo"));
+        
+        HashMap model = new HashMap();
+        model.put("par", p);    
+        model.put("template", "template/partido.vsl");
+
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));        
+
+    };
+
 }

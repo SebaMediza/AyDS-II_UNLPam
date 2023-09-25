@@ -1,0 +1,14 @@
+<form action= "/mostrarPartidos" method="get">
+    <div class = "form-group">
+        <label for="equipo">Equipo:</label>
+        <input id="equipo" name="equipo" class="form-control" type="text" value="$!{equipo}">
+    </div>
+    <button type="submit">Ver partidos</i></button>
+
+<CENTER>
+   
+</form>
+
+
+
+
