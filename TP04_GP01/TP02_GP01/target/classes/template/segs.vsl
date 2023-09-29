@@ -1,3 +1,12 @@
 <div>
-    Los segundos $segs tiene: $RES
+    <br>
+    <h1 style="text-align: center;">
+        Los $segs segundos ingresados, equivalen a: $RES
+    </h1>
 </div>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>

@@ -20,6 +20,13 @@ import spark.template.velocity.VelocityTemplateEngine;
 @SuppressWarnings("unchecked")
 public class Controller {
 
+    public static Route indice = (Request request, Response response) ->{
+        HashMap<String, String> model = new HashMap<>();
+       
+        model.put("template","template/indice.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
+    };
+
     //palindromo
     public static Route palindromoForm = (Request request, Response response) -> {
         

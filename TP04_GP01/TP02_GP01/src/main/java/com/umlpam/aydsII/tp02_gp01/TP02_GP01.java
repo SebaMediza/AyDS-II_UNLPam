@@ -4,32 +4,33 @@ import static spark.Spark.*;
 
 public class TP02_GP01 {
     public static void main(String[] args) {
-        get("/palindromo", Controller.palindromoForm);
+        get("/indice", Controller.indice);
+
+        get("/palindromo", Controller.palindromoForm); //este
         get("/esPalindromo", Controller.esPalindromo);
 
         get("/cantLetrasPalabra", Controller.cantLetras);
-        get("/cantLetras", Controller.cantLetrasForm);
+        get("/cantLetras", Controller.cantLetrasForm); //este
 
         get("/periareaCal", Controller.periArea);
-        get("/periarea", Controller.periAreaForm);
+        get("/periarea", Controller.periAreaForm); //este
 
         get("/operacionesCal", Controller.operaciones);
-        get("/operaciones", Controller.operacionesForm);
+        get("/operaciones", Controller.operacionesForm); //este
         
-        get("/calculadora", Controller.calcu);
+        get("/calculadora", Controller.calcu); //este
 
         get("/segsCal", Controller.timestamp);
-        get("/segs", Controller.segsForm);
+        get("/segs", Controller.segsForm); //este
 
-        get("", Controller.equipos);
         get("/emergencia", Controller.telEmergencias);
         get("/libros", Controller.books);
         
-        get("/dolar", Controller.dolar);
+        get("/dolar", Controller.dolar); //este
 
         get("/provincias", Controller.provincias);
 
-        get("/partidos", Controller.partidos);
+        get("/partidos", Controller.partidos); //este
         get("/mostrarPartidos", Controller.mostrarPartidos);
     }
 }
