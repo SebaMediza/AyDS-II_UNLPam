@@ -1,9 +1,22 @@
 <form action= "/operacionesCal" method="get">
     <div class = "form-group">
-        <label for="palabra">Calcular</label>
-        <input id="a" name="a" class="form-control" type="number" value="$!{a}">
-        <input id="op" name="op" class="form-control" type="text" value="$!{op}">
-        <input id="b" name="b" class="form-control" type="number" value="$!{b}">
+        <br>
+        <h1 style="text-align: center;">Complete los campos, segun se indica<h1>
+        <br>
+        <input id="a" name="a" class="form-control" type="number" placeholder="Ingrese un Numero" value="$!{a}">
+        <br>
+        <input id="op" name="op" class="form-control" type="text" placeholder="Ingrese + o -" value="$!{op}">
+        <br>
+        <input id="b" name="b" class="form-control" type="number" placeholder="Ingrese un Numero" value="$!{b}">
     </div>
-    <button type="submit">Calcular perimetro y area <i class="fa-solid fa-paper-plane"></i></button>
+    <br>
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Calcular perimetro y area <i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
 </form>

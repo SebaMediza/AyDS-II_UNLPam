@@ -1,7 +1,18 @@
 <form action= "/periareaCal" method="get">
     <div class = "form-group">
-        <label for="palabra">Radio</label>
+        <br>
+        <h1 style="text-align: center;">Ingrese un valor para el radio del circulo</h1>
+        <br>
         <input id="radio" name="radio" class="form-control" type="number" value="$!{radio}">
     </div>
-    <button type="submit">Calcular perimetro y area <i class="fa-solid fa-paper-plane"></i></button>
+    <br>
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Calcular perimetro y area <i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
 </form>

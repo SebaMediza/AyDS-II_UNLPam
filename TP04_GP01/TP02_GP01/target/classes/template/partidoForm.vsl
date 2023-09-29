@@ -1,12 +1,20 @@
 <form action= "/mostrarPartidos" method="get">
     <div class = "form-group">
-        <label for="equipo">Equipo:</label>
+        <br>
+        <h1 style="text-align: center;">Ingrese un equipo</h1>
+        <br>
         <input id="equipo" name="equipo" class="form-control" type="text" value="$!{equipo}">
     </div>
-    <button type="submit">Ver partidos</i></button>
-
-<CENTER>
-   
+    <br>
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Ver partidos</i></button>   
+    </div>
+</form>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
 </form>
 
 
