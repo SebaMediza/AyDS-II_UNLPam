@@ -192,6 +192,7 @@ public class Controller {
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));        
     };
 
+    @SuppressWarnings("rawtypes")
     public static Route mostrarPartidos = (Request req, Response res) ->{
         PartidoDAO pDAO = new PartidoDAO();
         List<Ejercicios> p = pDAO.getPartidos(req.queryParams("equipo"));
