@@ -16,11 +16,13 @@
             </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <form action="/home" method="get">
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Inicio</button>
+                    </form>
                 </li>
                 <li class="nav-item">
                     <form action="/productos" method="get">
-                        <button onclick="SubmitEvent">Productos</button>
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Productos</button>
                     </form>
                 </li>
             </ul>
@@ -48,21 +50,66 @@
         </div>
     </nav>
     <br>
-    <div style="text-align: center">  
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <img src="$RES.getImagen()" class="card-img-top" alt="...">
-                <h5 class="card-title">$RES.getNombre()</h5>
-                <p class="card-text">$RES.getDescripcion_producto()</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Precio: $RES.getPrecio_vta()</li>
-                <li class="list-group-item">Rinde:  $RES.getCant_porciones() porciones</li>
-                <li class="list-group-item">Codigo Interno: $RES.getId_producto()</li>
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Ver Mas</a>
-                <a href="#" class="card-link">Agregar al Carrito</a>
+    <div  style="display: flex; flex-direction: row; justify-content: space-around;"> 
+        #foreach($item in $RES)
+        <div style="text-align: center">  
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="$item.getImagen().getBytes()" class="card-img-top" alt="...">
+                    <h5 class="card-title">$item.getNombre()</h5>
+                    <p class="card-text">$item.getDescripcion_producto()</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
+                    <li class="list-group-item">Rinde:  $item.getCant_porciones() porciones</li>
+                    <li class="list-group-item">Codigo Interno: $item.getId_producto()</li>
+                </ul>
+                <div class="card-body">
+                    <form action="/masinfo" method="get">
+                        <button onclick="SubmitEvent" class="btn btn-primary">Ver Mas</button>
+                    </form>
+                    <br>
+                    <button class="btn btn-primary">Agregar al Carrito</button>
+                </div>
             </div>
         </div>
+        #end
     </div>
+    <footer class="footer bottom" style="height: 5px;">
+        <div class="container" style="text-align: center; background-color: rgba(0,0,0,0.71);">
+            <div class="row" style="color: white;">
+                <div class="col-4" style="border: 1px solid black;">
+                    <p style="font-weight: bold;">Contactanos</p>
+                    <div class="row">
+                        <div class="col"><img src="imagenes/phone-call.png" alt=""></div>
+                        <div class="col">+54 9 2302-XXXXXX</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><img src="imagenes/location.png" alt=""></div>
+                        <div class="col">Calle XX entre XX y XX</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><img src="imagenes/email.png" alt=""></div>
+                        <div class="col">XXXXXXXXXX@XXXXXX.com</div>
+                    </div>
+                </div>
+                <div class="col-4" style="border: 1px solid black;">
+                    <p style="font-weight: bold;">Formas de Pago</p>
+                    <div class="row">
+                        <div class="col-4"><img src="imagenes/Mastercard-Logo-2016.png" alt=""></div>
+                        <div class="col-4"><img src="imagenes/mercado-pago.png" alt=""></div>
+                        <div class="col-4"><img src="imagenes/visa-logo.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="col-4" style="border: 1px solid black;">
+                    <div class="custom-footer-div">
+                        <p style="font-weight: bold;">Buscanos en las Redes</p>
+                        <div class="row">
+                            <div class="col"><img src="imagenes/instagramLogo.png" alt=""></div>
+                            <div class="col"><img src="imagenes/facebookLogo.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>

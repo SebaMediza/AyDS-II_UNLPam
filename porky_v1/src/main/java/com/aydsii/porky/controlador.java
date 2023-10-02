@@ -20,9 +20,17 @@ public class controlador {
     public static Route allProductos = (Request request, Response response) -> {
         HashMap model = new HashMap();
         List<producto> RES = producto.buscarProducto();
-        System.out.print(RES);
+        //System.out.print(RES);
         model.put("RES", RES);
         model.put("template","template/carta.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
+    };
+    @SuppressWarnings("rawtypes")
+    public static Route moreInfo = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        //List<producto> RES = producto.masInformacion(request.queryParams("id"));
+        //model.put("RES", RES);
+        model.put("template","template/infoproducto.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };
 }

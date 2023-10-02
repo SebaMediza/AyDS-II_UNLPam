@@ -15,11 +15,13 @@
             </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <form action="/home" method="get">
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Inicio</button>
+                    </form>
                 </li>
                 <li class="nav-item">
                     <form action="/productos" method="get">
-                        <button onclick="SubmitEvent">Productos</button>
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Productos</button>
                     </form>
                 </li>
             </ul>
