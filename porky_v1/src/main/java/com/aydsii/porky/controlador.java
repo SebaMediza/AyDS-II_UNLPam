@@ -2,7 +2,6 @@ package com.aydsii.porky;
 
 import java.util.HashMap;
 import java.util.List;
-
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -11,8 +10,9 @@ import spark.template.velocity.VelocityTemplateEngine;
 
 @SuppressWarnings("unchecked")
 public class controlador {
+    @SuppressWarnings("rawtypes")
     public static Route indice = (Request request, Response response) -> {
-        HashMap<String, String> model = new HashMap<>();
+        HashMap model = new HashMap();
         model.put("template","template/indice.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };

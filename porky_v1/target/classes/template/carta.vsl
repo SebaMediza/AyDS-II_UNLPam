@@ -1,3 +1,4 @@
+## Velocity Template    
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid" style="background-color: rgb(247,201,239);">
             <a class="navbar-brand" href="#" style="background-color: rgb(247,201,239);">
@@ -51,7 +52,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <img src="$RES.getImagen()" class="card-img-top" alt="...">
-                <h5 class="card-title"$RES.getNombre()</h5>
+                <h5 class="card-title">$RES.getNombre()</h5>
                 <p class="card-text">$RES.getDescripcion_producto()</p>
             </div>
             <ul class="list-group list-group-flush">
