@@ -37,7 +37,10 @@
                     <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Productos</a>
+                    <form action="/productos" method="get">
+                        <button onclick="SubmitEvent">Productos</button>
+                        <a class="nav-link" onclick="SubmitEvent">Productos</a>
+                    </form>
                 </li>
             </ul>
             <form class="d-flex" role="search">
