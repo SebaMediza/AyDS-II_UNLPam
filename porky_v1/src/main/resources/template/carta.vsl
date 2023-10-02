@@ -1,18 +1,67 @@
-#foreach($item in RES)
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <img src="$item.getImagen()" class="card-img-top" alt="...">
-            <h5 class="card-title"$item.getNombre()</h5>
-            <p class="card-text">$item.getDescripcion_producto()</p>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" style="background-color: rgb(247,201,239);">
+            <a class="navbar-brand" href="#" style="background-color: rgb(247,201,239);">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid" style="background-color: rgb(247,201,239);">
+                        <img src="imagenes/logoPorkyInsta.png" alt="Logo" width="30"
+                            height="30" class="d-inline-block align-text-top">
+                        Porky Cakes
+                    </div>
+                </nav>
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <form action="/productos" method="get">
+                        <button onclick="SubmitEvent">Productos</button>
+                    </form>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgb(232,181,181);">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cuenta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Inicar Secion</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Registrase</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
-            <li class="list-group-item">Rinde:  $item.getCant_porciones() porciones</li>
-            <li class="list-group-item">Codigo Interno: $item.getId_producto()</li>
-        </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Ver Mas</a>
-            <a href="#" class="card-link">Agregar al Carrito</a>
+    </nav>
+    <br>
+    <div style="text-align: center">  
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img src="$RES.getImagen()" class="card-img-top" alt="...">
+                <h5 class="card-title"$RES.getNombre()</h5>
+                <p class="card-text">$RES.getDescripcion_producto()</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Precio: $RES.getPrecio_vta()</li>
+                <li class="list-group-item">Rinde:  $RES.getCant_porciones() porciones</li>
+                <li class="list-group-item">Codigo Interno: $RES.getId_producto()</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Ver Mas</a>
+                <a href="#" class="card-link">Agregar al Carrito</a>
+            </div>
         </div>
-      </div>
-#end
+    </div>

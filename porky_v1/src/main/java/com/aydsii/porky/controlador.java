@@ -14,14 +14,13 @@ public class controlador {
     public static Route indice = (Request request, Response response) -> {
         HashMap<String, String> model = new HashMap<>();
         model.put("template","template/indice.vsl");
-        //System.out.println(producto.buscarProducto());
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };
     @SuppressWarnings("rawtypes")
     public static Route allProductos = (Request request, Response response) -> {
         HashMap model = new HashMap();
         List<producto> RES = producto.buscarProducto();
-        //System.out.print(((producto) RES).getNombre());
+        System.out.print(RES);
         model.put("RES", RES);
         model.put("template","template/carta.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
