@@ -9,7 +9,7 @@ import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
 @SuppressWarnings("unchecked")
-public class controlador {
+public class Controlador {
     @SuppressWarnings("rawtypes")
     public static Route indice = (Request request, Response response) -> {
         HashMap model = new HashMap();
@@ -19,7 +19,7 @@ public class controlador {
     @SuppressWarnings("rawtypes")
     public static Route allProductos = (Request request, Response response) -> {
         HashMap model = new HashMap();
-        List<producto> RES = producto.buscarProducto();
+        List<Producto> RES = Producto.buscarProducto();
         //System.out.print(RES);
         model.put("RES", RES);
         model.put("template","template/carta.vsl");
@@ -28,8 +28,18 @@ public class controlador {
     @SuppressWarnings("rawtypes")
     public static Route moreInfo = (Request request, Response response) -> {
         HashMap model = new HashMap();
-        //List<producto> RES = producto.masInformacion(request.queryParams("id"));
-        //model.put("RES", RES);
+        List<Producto> RES = Producto.masInformacion(1);
+        System.out.println(RES);
+        model.put("RES", RES);
+        model.put("template","template/infoproducto.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
+    };
+    @SuppressWarnings("rawtypes")
+    public static Route admin = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        List<Producto> RES = Producto.masInformacion(1);
+        System.out.println(RES);
+        model.put("RES", RES);
         model.put("template","template/infoproducto.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };

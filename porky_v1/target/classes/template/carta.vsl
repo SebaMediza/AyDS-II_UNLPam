@@ -50,12 +50,13 @@
         </div>
     </nav>
     <br>
+    <div class="container">
     <div  style="display: flex; flex-direction: row; justify-content: space-around;"> 
         #foreach($item in $RES)
         <div style="text-align: center">  
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <img src="$item.getImagen().getBytes()" class="card-img-top" alt="...">
+                    <img src="$item.getImg_producto()" class="card-img-top" alt="...">
                     <h5 class="card-title">$item.getNombre()</h5>
                     <p class="card-text">$item.getDescripcion_producto()</p>
                 </div>
@@ -66,7 +67,8 @@
                 </ul>
                 <div class="card-body">
                     <form action="/masinfo" method="get">
-                        <button onclick="SubmitEvent" class="btn btn-primary">Ver Mas</button>
+                        <input type="number" name="id" value="$item.getId_producto()" style="visibility: hidden;">
+                        <input type="submit" value="Ver Mas" class="btn btn-primary">
                     </form>
                     <br>
                     <button class="btn btn-primary">Agregar al Carrito</button>
@@ -74,6 +76,7 @@
             </div>
         </div>
         #end
+    </div>
     </div>
     <footer class="footer bottom" style="height: 5px;">
         <div class="container" style="text-align: center; background-color: rgba(0,0,0,0.71);">
