@@ -7,6 +7,7 @@ public class Main {
         staticFiles.location("/public");
         get("/home", Controlador.indice);
         get("/productos", Controlador.allProductos);
+        get("/producto", Controlador.nameQuerry);
         get("/masinfo", Controlador.moreInfo);
         get("/admin", Controlador.admin);
     }

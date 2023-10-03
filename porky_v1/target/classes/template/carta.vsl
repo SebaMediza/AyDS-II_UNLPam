@@ -1,118 +1,33 @@
 ## Velocity Template    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid" style="background-color: rgb(247,201,239);">
-            <a class="navbar-brand" href="#" style="background-color: rgb(247,201,239);">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <nav class="navbar bg-body-tertiary">
-                    <div class="container-fluid" style="background-color: rgb(247,201,239);">
-                        <img src="logoPorkyInsta.png" alt="Logo" width="30"
-                            height="30" class="d-inline-block align-text-top">
-                        Porky Cakes
-                    </div>
-                </nav>
-            </a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <form action="/home" method="get">
-                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Inicio</button>
-                    </form>
-                </li>
-                <li class="nav-item">
-                    <form action="/productos" method="get">
-                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Productos</button>
-                    </form>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgb(232,181,181);">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Cuenta
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Inicar Secion</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Registrase</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <br>
     <div class="container">
-    <div  style="display: flex; flex-direction: row; justify-content: space-around;"> 
-        #foreach($item in $RES)
-        <div style="text-align: center">  
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="$item.getImg_producto()" class="card-img-top" alt="...">
-                    <h5 class="card-title">$item.getNombre()</h5>
-                    <p class="card-text">$item.getDescripcion_producto()</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
-                    <li class="list-group-item">Rinde:  $item.getCant_porciones() porciones</li>
-                    <li class="list-group-item">Codigo Interno: $item.getId_producto()</li>
-                </ul>
-                <div class="card-body">
-                    <form action="/masinfo" method="get">
-                        <input type="number" name="id" value="$item.getId_producto()" style="visibility: hidden;">
-                        <input type="submit" value="Ver Mas" class="btn btn-primary">
-                    </form>
-                    <br>
-                    <button class="btn btn-primary">Agregar al Carrito</button>
-                </div>
-            </div>
-        </div>
-        #end
-    </div>
-    </div>
-    <footer class="footer bottom" style="height: 5px;">
-        <div class="container" style="text-align: center; background-color: rgba(0,0,0,0.71);">
-            <div class="row" style="color: white;">
-                <div class="col-4" style="border: 1px solid black;">
-                    <p style="font-weight: bold;">Contactanos</p>
-                    <div class="row">
-                        <div class="col"><img src="imagenes/phone-call.png" alt=""></div>
-                        <div class="col">+54 9 2302-XXXXXX</div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><img src="imagenes/location.png" alt=""></div>
-                        <div class="col">Calle XX entre XX y XX</div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><img src="imagenes/email.png" alt=""></div>
-                        <div class="col">XXXXXXXXXX@XXXXXX.com</div>
-                    </div>
-                </div>
-                <div class="col-4" style="border: 1px solid black;">
-                    <p style="font-weight: bold;">Formas de Pago</p>
-                    <div class="row">
-                        <div class="col-4"><img src="imagenes/Mastercard-Logo-2016.png" alt=""></div>
-                        <div class="col-4"><img src="imagenes/mercado-pago.png" alt=""></div>
-                        <div class="col-4"><img src="imagenes/visa-logo.png" alt=""></div>
-                    </div>
-                </div>
-                <div class="col-4" style="border: 1px solid black;">
-                    <div class="custom-footer-div">
-                        <p style="font-weight: bold;">Buscanos en las Redes</p>
-                        <div class="row">
-                            <div class="col"><img src="imagenes/instagramLogo.png" alt=""></div>
-                            <div class="col"><img src="imagenes/facebookLogo.png" alt=""></div>
+        <div class="row row-cols-4">
+            #foreach($item in $RES)
+                <div class="col">
+                    <div style="text-align: center">  
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="$item.getImg_producto()" class="card-img-top" alt="...">
+                                <h5 class="card-title">$item.getNombre()</h5>
+                                <p class="card-text">$item.getDescripcion_producto()</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
+                                <li class="list-group-item">Rinde:  $item.getCant_porciones() porciones</li>
+                                <li class="list-group-item">Codigo Interno: $item.getId_producto()</li>
+                            </ul>
+                            <div class="card-body">
+                                <form action="/masinfo" method="get">
+                                    <input type="number" name="id" value="$item.getId_producto()" style="visibility: hidden;">
+                                    <input type="submit" value="Ver Mas" class="btn btn-primary">
+                                </form>
+                                <br>
+                                <button class="btn btn-primary">Agregar al Carrito</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            #end
         </div>
-    </footer>
+    </div>
+    <br>

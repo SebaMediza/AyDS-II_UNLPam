@@ -28,4 +28,16 @@ public class ProductoDAO {
         }
         return querryResult;
     }
+
+    public static List<Producto> masInformacion(String nombre){
+        String querryString = "SELECT * FROM PRODUCTO WHERE UPPER(NOMBRE) LIKE '%" + nombre + "%'";
+        List<Producto> querryResult = null;
+        try (Connection connection = sql2oDAO.getSql2oDAO().open()){
+            querryResult = connection.createQuery(querryString).executeAndFetch(Producto.class);
+            //System.out.println(querryResult);
+        } catch (Sql2oException sql2oException) {
+            System.out.println(sql2oException);
+        }
+        return querryResult;
+    }
 }
