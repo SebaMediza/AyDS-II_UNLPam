@@ -8,7 +8,7 @@
                 </button>
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid" style="background-color: rgb(247,201,239);">
-                        <img src="imagenes/logoPorkyInsta.png" alt="Logo" width="30"
+                        <img src="logoPorkyInsta.png" alt="Logo" width="30"
                             height="30" class="d-inline-block align-text-top">
                         Porky Cakes
                     </div>

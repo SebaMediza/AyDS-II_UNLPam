@@ -15,11 +15,11 @@ public class Producto {
     private String img_producto;
 
     public static List<Producto> buscarProducto(){
-        String querryString = "SELECT * FROM PRODUCTOS";
+        String querryString = "SELECT * FROM PRODUCTO";
         List<Producto> querryResult = null;
         try (Connection connection = sql2oDAO.getSql2oDAO().open()){
             querryResult = connection.createQuery(querryString).executeAndFetch(Producto.class);
-            System.out.println(querryResult);
+            //System.out.println(querryResult);
         } catch (Sql2oException sql2oException) {
             System.out.println(sql2oException);
         }

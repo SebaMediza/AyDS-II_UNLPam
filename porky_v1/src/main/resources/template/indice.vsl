@@ -7,7 +7,7 @@
                 </button>
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid" style="background-color: rgb(247,201,239);">
-                        <img src="imagenes/logoPorkyInsta.png" alt="Logo" width="30"
+                        <img src="logoPorkyInsta.png" alt="Logo" width="30"
                             height="30" class="d-inline-block align-text-top">
                         Porky Cakes
                     </div>
@@ -52,16 +52,16 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="100">
-                    <img src="G:\Scrips\AyDSII_UNLPam\porky_v1\src\main\resources\template\imagenes\cropped-851-315-1324796.png" class="d-block w-100" alt="...">
+                    <img src="cropped-851-315-1324796.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagenes/cropped-851-315-598610.jpg" class="d-block w-100" alt="...">
+                    <img src="cropped-851-315-598610.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagenes/cropped-851-315-1325359.png" class="d-block w-100" alt="...">
+                    <img src="cropped-851-315-1325359.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagenes/cropped-851-315-670508.jpg" class="d-block w-100" alt="...">
+                    <img src="cropped-851-315-670508.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes\tortaPistachos.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="tortaPistachos.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -88,7 +88,7 @@
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <a href="plantilla.html">
-                                    <img src="imagenes/cheesecakePistacho.jpg" class="img-fluid rounded-start" alt="...">
+                                    <img src="cheesecakePistacho.jpg" class="img-fluid rounded-start" alt="...">
                                 </a>
                             </div>
                             <div class="col-md-8">
@@ -104,7 +104,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes/nutellaCake.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="nutellaCake.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -121,7 +121,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes/carrotCake.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="carrotCake.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -136,7 +136,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes/cookies.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="cookies.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -151,7 +151,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes/rogel.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="rogel.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -168,7 +168,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes/oreo.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="oreo.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -183,7 +183,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes/bruce.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="bruce.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -198,7 +198,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <a href="plantilla.html"><img src="imagenes/brownieDobel.jpg" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="plantilla.html"><img src="brownieDobel.jpg" class="img-fluid rounded-start" alt="..."></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -219,32 +219,32 @@
                 <div class="col-4" style="border: 1px solid black;">
                     <p style="font-weight: bold;">Contactanos</p>
                     <div class="row">
-                        <div class="col"><img src="imagenes/phone-call.png" alt=""></div>
+                        <div class="col"><img src="phone-call.png" alt=""></div>
                         <div class="col">+54 9 2302-XXXXXX</div>
                     </div>
                     <div class="row">
-                        <div class="col"><img src="imagenes/location.png" alt=""></div>
+                        <div class="col"><img src="location.png" alt=""></div>
                         <div class="col">Calle XX entre XX y XX</div>
                     </div>
                     <div class="row">
-                        <div class="col"><img src="imagenes/email.png" alt=""></div>
+                        <div class="col"><img src="email.png" alt=""></div>
                         <div class="col">XXXXXXXXXX@XXXXXX.com</div>
                     </div>
                 </div>
                 <div class="col-4" style="border: 1px solid black;">
                     <p style="font-weight: bold;">Formas de Pago</p>
                     <div class="row">
-                        <div class="col-4"><img src="imagenes/Mastercard-Logo-2016.png" alt=""></div>
-                        <div class="col-4"><img src="imagenes/mercado-pago.png" alt=""></div>
-                        <div class="col-4"><img src="imagenes/visa-logo.png" alt=""></div>
+                        <div class="col-4"><img src="Mastercard-Logo-2016.png" alt=""></div>
+                        <div class="col-4"><img src="mercado-pago.png" alt=""></div>
+                        <div class="col-4"><img src="visa-logo.png" alt=""></div>
                     </div>
                 </div>
                 <div class="col-4" style="border: 1px solid black;">
                     <div class="custom-footer-div">
                         <p style="font-weight: bold;">Buscanos en las Redes</p>
                         <div class="row">
-                            <div class="col"><img src="imagenes/instagramLogo.png" alt=""></div>
-                            <div class="col"><img src="imagenes/facebookLogo.png" alt=""></div>
+                            <div class="col"><img src="instagramLogo.png" alt=""></div>
+                            <div class="col"><img src="facebookLogo.png" alt=""></div>
                         </div>
                     </div>
                 </div>
