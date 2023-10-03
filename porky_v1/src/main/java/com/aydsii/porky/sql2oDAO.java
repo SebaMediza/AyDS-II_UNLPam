@@ -11,7 +11,7 @@ public class sql2oDAO {
             try {
                 //sql2o = new Sql2o("jdbc:mysql://localhost:3306/porky_cakes", "root", "admin");
                 sql2o = new Sql2o("jdbc:mysql://localhost:3306/porky_cakes", "seba", "admin");
-                System.out.println("Conexion Exitosa");
+                System.out.println("Conexion Establecida");
             } catch (Sql2oException sql2o) {
                 System.out.println(sql2o);
             }

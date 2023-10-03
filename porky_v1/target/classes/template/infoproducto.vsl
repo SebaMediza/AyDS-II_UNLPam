@@ -1,1 +1,133 @@
-<h1>Esto es la informacion especifica de un producto</h1>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" style="background-color: rgb(247,201,239);">
+            <a class="navbar-brand" href="#">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <img src="logoPorkyInsta.png" alt="Logo" width="30"
+                            height="30" class="d-inline-block align-text-top">
+                        Porky Cakes
+                    </div>
+                </nav>
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Productos</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgb(232,181,181);">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cuenta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Inicar Secion</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Registrase</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        #foreach($item in $RES)
+        <div style="display: inline-flex;">
+            <div class="col">
+                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_aux1() alt=""></div>
+                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_aux2() alt=""></div>
+                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_aux3() alt=""></div>
+            </div>
+            <div>
+                <img src=$item.getImg_producto() alt="" width="500px" height=auto>
+            </div>
+            <div>
+                <h1>$item.getNombre()</h1>
+                <h3>$$item.getPrecio_vta()</h3>
+                <div>
+                    <h5>Metodos de Pago</h5>
+                </div>
+                <hr>
+                <h5>Cantidad:
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                <!-- Puedes agregar más opciones según sea necesario -->
+                </select>
+                </h5>
+
+                <div>
+                    <br>
+                    <button class="btn btn-primary">Añadir al Carrito</button>
+                    O
+                    <button class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h3>Descripcion</h3>
+            <p>$item.getDescripcion_producto()
+            </p>
+        </div>
+    </div>
+    #end
+    <div style="text-align: center;">
+        <form action="/productos" method="get">
+            <input type="submit" value="Volver" class="btn btn-primary">
+         </form>
+    </div>
+    <br>
+    <footer class="footer bottom" style="height: 5px;">
+        <div class="container" style="text-align: center; background-color: rgba(0,0,0,0.71);">
+            <div class="row" style="color: white;">
+                <div class="col-4" style="border: 1px solid black;">
+                    <p style="font-weight: bold;">Contactanos</p>
+                    <div class="row">
+                        <div class="col">ico</div>
+                        <div class="col">tel</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">ico</div>
+                        <div class="col">ubi</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">ico</div>
+                        <div class="col">mail</div>
+                    </div>
+                </div>
+                <div class="col-4" style="border: 1px solid black;">
+                    <p style="font-weight: bold;">Formas de Pago</p>
+                    <div class="row">
+                        <div class="col-4"><img src="Mastercard-Logo-2016.png" alt=""></div>
+                        <div class="col-4"><img src="mercado-pago.png" alt=""></div>
+                        <div class="col-4"><img src="visa-logo.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="col-4" style="border: 1px solid black;">
+                    <div class="custom-footer-div">
+                        <p style="font-weight: bold;">Buscanos en las Redes</p>
+                        <div class="row">
+                            <div class="col"><img src="instagramLogo.png" alt=""></div>
+                            <div class="col"><img src="facebookLogo.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
