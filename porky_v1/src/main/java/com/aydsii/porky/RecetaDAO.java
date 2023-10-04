@@ -11,7 +11,6 @@ public class RecetaDAO {
         List<Receta> querryResult = null;
         try (Connection connection = sql2oDAO.getSql2oDAO().open()){
             querryResult = connection.createQuery(querryString).executeAndFetch(Receta.class);
-            System.out.println(querryResult);
         } catch (Sql2oException sql2oException) {
             System.out.println(sql2oException);
         }

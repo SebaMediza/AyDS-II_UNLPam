@@ -10,7 +10,6 @@ public class ProductoDAO {
         List<Producto> querryResult = null;
         try (Connection connection = sql2oDAO.getSql2oDAO().open()){
             querryResult = connection.createQuery(querryString).executeAndFetch(Producto.class);
-            //System.out.println(querryResult);
         } catch (Sql2oException sql2oException) {
             System.out.println(sql2oException);
         }
@@ -22,7 +21,6 @@ public class ProductoDAO {
         List<Producto> querryResult = null;
         try (Connection connection = sql2oDAO.getSql2oDAO().open()){
             querryResult = connection.createQuery(querryString).executeAndFetch(Producto.class);
-            //System.out.println(querryResult);
         } catch (Sql2oException sql2oException) {
             System.out.println(sql2oException);
         }
@@ -34,7 +32,6 @@ public class ProductoDAO {
         List<Producto> querryResult = null;
         try (Connection connection = sql2oDAO.getSql2oDAO().open()){
             querryResult = connection.createQuery(querryString).executeAndFetch(Producto.class);
-            //System.out.println(querryResult);
         } catch (Sql2oException sql2oException) {
             System.out.println(sql2oException);
         }

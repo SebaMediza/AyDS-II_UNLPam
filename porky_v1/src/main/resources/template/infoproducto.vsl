@@ -36,6 +36,13 @@
             </div>
         </div>
         <hr>
+        <ol>
+            <h5>Ingredientes:</h5>
+            #foreach($item1 in $RES3)
+                <li>$item1.getNombre_mp(), $item1.getCantidad() $item1.getUnidad_medida()</li>
+            #end
+        </ol>
+        <hr>
         #foreach($item2 in $RES2)
             <table>
                 <tr>
