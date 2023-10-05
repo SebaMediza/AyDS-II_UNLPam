@@ -1,0 +1,23 @@
+    <form action="upload.php" method="post">
+        <ol>
+            <li><input type="text" name="nombre" placeholder="Nombre del Producto"></li>
+            <br>
+            <li><input type="number" name="precio_vta" placeholder="Precio de Venta"></li>
+            <br>
+            <li><input type="number" name="cant_porciones" placeholder="Cantidad de Prociones"></li>
+            <br>
+            <li><input type="text" name="descripcion_producto" placeholder="Descripcion del Producto"></li>
+            <br>
+            <li><input type="file" name="img_producto"></li>
+            <br>
+            <li>
+                <input type="file" name="img_aux1">
+                <input type="file" name="img_aux2">
+                <input type="file" name="img_aux3">
+            </li>
+            <br>
+            <li>
+                <input type="submit" value="Enviar">
+            </li>
+        </ol>
+    </form>
