@@ -51,7 +51,7 @@ public class Controlador {
     @SuppressWarnings("rawtypes")
     public static Route admin = (Request request, Response response) -> {
         HashMap model = new HashMap();
-        model.put("template","template/infoproducto.vsl");
+        model.put("template","template/admin.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };
 }
