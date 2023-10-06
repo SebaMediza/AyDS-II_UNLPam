@@ -9,8 +9,7 @@ public class sql2oDAO {
     public static Sql2o getSql2oDAO() {
         if(sql2o == null){
             try {
-                //sql2o = new Sql2o("jdbc:mysql://localhost:3306/porky_cakes", "root", "admin");
-                sql2o = new Sql2o("jdbc:mysql://localhost:3306/porky_cakes", "seba", "admin");
+                sql2o = new Sql2o("jdbc:mysql://localhost:3306/porky_cakes", "root", "");
                 System.out.println("Conexion Establecida");
             } catch (Sql2oException sql2o) {
                 System.out.println(sql2o);

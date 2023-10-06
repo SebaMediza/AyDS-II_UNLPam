@@ -30,7 +30,7 @@ public class Controlador {
     public static Route moreInfo = (Request request, Response response) -> {
         HashMap model = new HashMap();
         List<Producto> RES = ProductoDAO.masInformacion(Integer.valueOf(request.queryParams("id")));
-        List<Receta> RES2 = RecetaDAO.Receta(Integer.valueOf(request.queryParams("id")));
+        List<Receta> RES2 = RecetaDAO.receta(Integer.valueOf(request.queryParams("id")));
         List<MatPrimaIngredietes> RES3 = MatPrimaIngredientesDAO.ingredientesOf(Integer.valueOf(request.queryParams("id")));
         model.put("RES", RES);
         model.put("RES2", RES2);
@@ -52,6 +52,27 @@ public class Controlador {
     public static Route admin = (Request request, Response response) -> {
         HashMap model = new HashMap();
         model.put("template","template/admin.vsl");
-        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
+    };
+
+    @SuppressWarnings("rawtypes")
+    public static Route adminProductos = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        model.put("template","template/adminProductos.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
+    };
+    
+    @SuppressWarnings("rawtypes")
+    public static Route sobreMi = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        model.put("template","template/sobreMi.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
+    };
+    
+    @SuppressWarnings("rawtypes")
+    public static Route encargos = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        model.put("template","template/encargos.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
     };
 }

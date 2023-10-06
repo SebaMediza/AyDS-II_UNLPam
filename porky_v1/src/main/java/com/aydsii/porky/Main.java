@@ -10,5 +10,8 @@ public class Main {
         get("/producto", Controlador.nameQuerry);
         get("/masinfo", Controlador.moreInfo);
         get("/admin", Controlador.admin);
+        get("/admin/productos", Controlador.adminProductos);
+        get("/admin/sobremi", Controlador.sobreMi);
+        get("/admin/encargos", Controlador.encargos);
     }
 }

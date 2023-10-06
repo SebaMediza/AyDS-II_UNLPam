@@ -65,10 +65,10 @@
             </button>
         </div>
         <div class="tab_container">
-            <div class="tab_selected">Inicio</div>
-            <div class="tab"><a href="/admin/productos" method="get">Productos</a></div>
+            <div class="tab"><a href="/admin">Inicio</a></div>
+            <div class="tab"><a href="/admin/productos">Productos</a></div>
             <div class="tab"><a href="/admin/encargos">Encargos</a></div>
-            <div class="tab"><a href="/admin/sobremi">Sobre mí</a></div>
+            <div class="tab_selected">Sobre mi</div>
         </div>
     </div>
 </body>
