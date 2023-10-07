@@ -59,14 +59,15 @@
             </button>
             <h1>Nuevo Producto</h1>
         </div>
-        <form class="form_product">
+        <form class="form_product" action="/admin/productos/agregado" method="get">
             <li>Datos Generales</li>
             <hr>
-            <input type="text" id="name" placeholder="Nombre">
+            <input type="text" name="name" id="name" placeholder="Nombre">
             <input type="number" name="price" id="price" placeholder="Precio">
+            <input type="number" name="cant_porciones" id="cant_porciones" placeholder="Cantidad de Porciones">
             <input type="file" name="photo" id="photo">
             <textarea name="description" id="1" cols="20" rows="3" placeholder="Descripción"></textarea>
-            <li>Ingredientes</li>
+            <!--<li>Ingredientes</li>
             <hr>
             <div class="ingredient_container">
                 <input type="text" name="name_ing" id="1" placeholder="Ingrediente">
@@ -80,10 +81,10 @@
                 <input type="number" name="id_step" id="1" disabled="true" value="id" placeholder="1">
                 <input type="text" name="description_step" id="1" placeholder="Descripción del paso">
                 <button class="btn_add">+</button>
-            </div>
+            </div>-->
             <div class="keypad">
                 <button class="btn_cancel"> <a href="products.html">Cancelar</a></button>
-                <button class="btn_confirm"> <a href="products.html">Confirmar</a></button>
+                <input type="submit" value="Confirmar" class="btn_confirm">
             </div>
         </form>
     </div>

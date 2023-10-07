@@ -37,4 +37,17 @@ public class ProductoDAO {
         }
         return querryResult;
     }
+
+    public static void insertarProducto(String nombre, int precio_vta, int cant_porciones, String descripcion_producto, String img_producto){
+        if (img_producto.length() == 0){
+            img_producto = "null";
+        }
+        String querryString = "INSERT INTO producto (NOMBRE, PRECIO_VTA, CANT_PORCIONES, DESCRIPCION_PRODUCTO, img_producto) VALUES(" + "'" + nombre + "'" + ", " + String.valueOf(precio_vta) + ", " + String.valueOf(cant_porciones) + ", " + "'" + descripcion_producto + "'" + ", " + img_producto + ")";
+        System.out.println(querryString);
+        try (Connection connection = sql2oDAO.getSql2oDAO().open()){
+            connection.createQuery(querryString).executeUpdate();
+        } catch (Sql2oException sql2oException) {
+            System.out.println(sql2oException);
+        }
+    }
 }

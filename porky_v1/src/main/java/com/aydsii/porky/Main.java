@@ -13,5 +13,8 @@ public class Main {
         get("/admin/productos", Controlador.adminProductos);
         get("/admin/sobremi", Controlador.sobreMi);
         get("/admin/encargos", Controlador.encargos);
+        get("/admin/productos/agregar", Controlador.addProducto);
+        get("/admin/productos/agregado", Controlador.productoAgregado);
+        
     }
 }

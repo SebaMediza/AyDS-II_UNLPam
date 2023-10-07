@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Formulario con Campos Dinámicos</title>
+    <script>
+        function agregarCampo() {
+            // Clona el elemento de campo de entrada
+            var input = document.getElementById("campoClonable").cloneNode(true);
+            
+            // Borra el contenido del campo clonado
+            input.value = "";
+            
+            // Agrega el campo clonado al formulario
+            document.getElementById("formulario").appendChild(input);
+        }
+    </script>
 </head>
 <body>
-    <form action="upload.php" method="get" enctype="multipart/form-data">
-        <input type="text" name="nombre">
-        <input type="number" name="precio_vta">
-        <input type="number" name="cant_porciones">
-        <input type="text" name="descripcion_producto">
-        <input type="file" name="img_producto">
-        <input type="file" name="img_aux1">
-        <input type="file" name="img_aux2">
-        <input type="file" name="img_aux3">
+    <h1>Formulario con Campos Dinámicos</h1>
+    <form id="formulario" action="procesar_formulario.php" method="post">
+        <!-- Campo de entrada original (se clonará) -->
+        <input type="text" id="campoClonable" name="campo[]" placeholder="Campo de Texto">
+        
+        <!-- Botón para agregar más campos -->
+        <button type="button" onclick="agregarCampo()">Agregar Campo</button>
+        
         <input type="submit" value="Enviar">
     </form>
 </body>
