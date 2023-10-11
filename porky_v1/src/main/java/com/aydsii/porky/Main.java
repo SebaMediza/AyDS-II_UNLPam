@@ -5,16 +5,18 @@ import static spark.Spark.*;
 public class Main {
     public static void main(String[] args) {
         staticFiles.location("/public");
-        get("/home", Controlador.indice);
-        get("/productos", Controlador.allProductos);
-        get("/producto", Controlador.nameQuerry);
-        get("/masinfo", Controlador.moreInfo);
-        get("/admin", Controlador.admin);
-        get("/admin/productos", Controlador.adminProductos);
-        get("/admin/sobremi", Controlador.sobreMi);
-        get("/admin/encargos", Controlador.encargos);
-        get("/admin/productos/agregar", Controlador.addProducto);
-        get("/admin/productos/agregado", Controlador.productoAgregado);
+        //Lado del Cliente
+        get("/home", ControladorCliente.indice);
+        get("/productos", ProductoControlador.allProductos);
+        get("/producto", ProductoControlador.nameQuerry);
+        get("/masinfo", ProductoControlador.moreInfo);
+        //Lado del administrador
+        get("/admin", ControladorAdmin.admin);
+        get("/admin/productos", ControladorAdmin.adminProductos);
+        get("/admin/sobremi", ControladorAdmin.sobreMi);
+        get("/admin/encargos", ControladorAdmin.encargos);
+        get("/admin/productos/agregar", ControladorAdmin.addProducto);
+        get("/admin/productos/agregado", ProductoControlador.productoAgregado);
         
     }
 }
