@@ -25,3 +25,4 @@ replay_pid*
 
 #carpetas del IDE
 .vscode/
+./porky_v1/target
