@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2023 a las 00:24:18
+-- Tiempo de generación: 11-10-2023 a las 21:19:23
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `ingrediente` (
   `ID_MATERIA_PRIMA` int(11) NOT NULL,
   `ID_PRODUCTO` int(11) NOT NULL,
-  `CANTIDAD` int(11) DEFAULT NULL,
-  `UNIDAD_MEDIDA` varchar(50) DEFAULT NULL
+  `CANTIDAD` int(11) NOT NULL,
+  `UNIDAD_MEDIDA` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -78,7 +78,7 @@ INSERT INTO `ingrediente` (`ID_MATERIA_PRIMA`, `ID_PRODUCTO`, `CANTIDAD`, `UNIDA
 
 CREATE TABLE `materia_prima` (
   `ID_MATERIA_PRIMA` int(11) NOT NULL,
-  `NOMBRE_MP` varchar(50) DEFAULT NULL
+  `NOMBRE_MP` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -121,7 +121,7 @@ INSERT INTO `materia_prima` (`ID_MATERIA_PRIMA`, `NOMBRE_MP`) VALUES
 CREATE TABLE `pasos_receta` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `NRO_PASO` int(11) NOT NULL,
-  `DESCRIPCION` varchar(500) DEFAULT NULL
+  `DESCRIPCION` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -176,10 +176,10 @@ INSERT INTO `pasos_receta` (`ID_PRODUCTO`, `NRO_PASO`, `DESCRIPCION`) VALUES
 CREATE TABLE `producto` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `NOMBRE` varchar(50) NOT NULL,
-  `PRECIO_VTA` int(11) DEFAULT NULL,
-  `CANT_PORCIONES` int(11) DEFAULT NULL,
-  `DESCRIPCION_PRODUCTO` varchar(500) DEFAULT NULL,
-  `img_producto` varchar(200) NOT NULL,
+  `PRECIO_VTA` int(11) NOT NULL,
+  `CANT_PORCIONES` int(11) NOT NULL,
+  `DESCRIPCION_PRODUCTO` varchar(500) NOT NULL,
+  `img_producto` varchar(200) DEFAULT NULL,
   `img_aux1` varchar(150) DEFAULT NULL,
   `img_aux2` varchar(150) DEFAULT NULL,
   `img_aux3` varchar(150) DEFAULT NULL
@@ -197,7 +197,7 @@ INSERT INTO `producto` (`ID_PRODUCTO`, `NOMBRE`, `PRECIO_VTA`, `CANT_PORCIONES`,
 (5, 'Lemon pie', 1500, 12, 'El lemon pie, uno de los postres m s cl sicos, en la versi n de la querida Blanca Cotta.', 'lemonPie.jpg', NULL, NULL, NULL),
 (6, 'Torta bombón', 1200, 8, 'La tarta bombón es la combinación perfecta, con una mezcla de texturas y sabores realmente increíble: la galleta crujiente de la base con el sabor intenso de un buen dulce de leche, coronado con el chocolate amargo de la cobertura.', 'bruce.jpg', 'tortaBombon1.jpeg', 'tortaBombon2.jpg', 'tortaBombon3.jpg'),
 (7, 'Tiramisu', 2000, 12, 'Con vainillas compradas o con vainillas caseras, con queso blanco o con mascarpone, con caf  y con cacao en polvo, este postre siempre es un golazo', 'tiramisu.jpeg', 'tiramisu1.jpg', 'tiramisu2.jpg', 'tiramisu3.jpeg'),
-(8, 'Tarta de frutillas', 1900, 12, 'Esta receta de tarta de frutillas se prepara con crema chantill , si se quiere se puede optar por crema pastelera y, para los m s golosos se le puede sumar dulce de leche. Es ideal prepararla cuando l', '', NULL, NULL, NULL);
+(8, 'Tarta de Frutas', 1900, 12, 'Esta receta de tarta de frutas se prepara con crema chantill , si se quiere se puede optar por crema pastelera y, para los m s golosos se le puede sumar dulce de leche. Es ideal prepararla cuando l', 'tartaFrutas.jpg', 'tartaFrutas1.jpg', 'tartaFrutas2.jpeg', 'tartaFrutas3.webp');
 
 --
 -- Índices para tablas volcadas
@@ -248,7 +248,7 @@ ALTER TABLE `materia_prima`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
