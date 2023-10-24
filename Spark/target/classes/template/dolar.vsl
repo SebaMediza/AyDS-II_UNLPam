@@ -1,0 +1,38 @@
+<STYLE>
+    .table{
+        width: 1300px;
+        margin-left: 5%;
+        margin-top: 2%;
+    }
+</STYLE>
+<div>
+    <div class="text-center">
+        <br>
+        <h1>Cotizacion del dolar</h1>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Casa</th>
+                <th>Venta</th>
+                <th>Compra</th>
+                <th>Tipo</th>
+                <th>Fecha de actualizacion</th>
+            </tr>
+            #foreach( $item in $RES )
+            <tr>
+                <td>$item.getCasa()</td>
+                <td>$item.getVenta()</td>
+                <td>$item.getCompra()</td>
+                <td>$item.getNombre()</td>
+                <td>$item.getFechaActualizacion()</td>
+            </tr>
+        #end    
+    </table>
+</div>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>

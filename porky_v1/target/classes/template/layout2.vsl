@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @font-face {
+    font-family: Quicksand Light;
+    src: url(fonts/Quicksand/Light.ttf);
+}
+@font-face {
+    font-family: Quicksand Medium;
+    src: url(fonts/Quicksand/Medium.ttf);
+}
+@font-face {
+    font-family: Quicksand Regular;
+    src: url(fonts/Quicksand/Regular.ttf);
+}
+@font-face {
+    font-family: Quicksand SemiBold;
+    src: url(fonts/Quicksand/SemiBold.ttf);
+}
+
+body{
+    margin: 0px;
+    font-family: Quicksand Regular;
+    text-align: center;
+    display: flex;
+    flex: 1 0 0;
+    flex-wrap: nowrap;
+}
+
+h1{
+    width: max-content;
+    flex: 1 0 0;
+    color: #fff;
+    font-size: 36px;
+}
+h2{
+    width: 75%;
+    color: #E33A65;
+    font-size: x-large;
+}
+
+a{
+    color: #E33A65;
+    text-decoration: none;
+}
+
+a:hover{
+    font-size: larger;
+}
+
+svg{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    align-content: center;
+    background: none;
+    border: none;
+}
+
+.btn_nav svg{
+    width: 5vh;
+    height: 5vh;
+}
+
+button{
+    margin: 1vh;
+    color : #ffffff;
+    display: flex;
+    width: 25%;
+    height: fit-content;
+    padding: 1%;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    gap: 1%;
+    border-color: #E33A65;
+    border-radius: 4px;
+    background: #E33A65;
+    border-style:solid;
+}
+
+button:hover{
+    cursor: pointer;
+    border-color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+.content{
+    display: flex;
+    width: 100%;
+    height: 5%; 
+    flex-direction: column;
+    flex-wrap: wrap;   
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex: 1 0 0;
+    background: #FF9AAF;
+}
+.navbar{
+    display: none;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: 100vh;
+    width: 0%;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: start;
+    padding: 2vh 2vh auto 2vw;
+    gap: 3vh;
+    background-color: #E33A65;
+}
+
+.tab_container{
+    font-family: Quicksand SemiBold;
+    font-size: medium;
+    width: 100%;
+    height: 7vh;
+    color: #E33A65;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex: 1 0 0;
+}
+
+.tab{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 0px 0px 8px 8px;
+    border: 4px solid #FF9AAF;
+    background: #F9D4DC;
+}
+
+.tab_selected{
+    font-size: larger;
+    color: #FFF;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 0px 0px 8px 8px;
+    border: 4px solid #FF9AAF;
+    background: #E33A65;
+}
+
+.prod_container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 3vw 3vh;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 2vw 2vh;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.product{
+    color: #333;
+    display: flex;
+    padding: 1vw;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 1vw;   
+    border-radius: 8px;
+    background: #F9D4DC;
+    box-shadow: 4px 4px 4px 0px rgba(227, 58, 101, 0.50);
+}
+.product svg{
+    width: fit-content;
+    height: 20vh;
+    border-radius: 2vh;
+}
+.prod_description{
+    width: 10vw;
+    height: 20vh;
+    font-size: smaller;
+    text-align: justify;
+}
+.prod_description p{
+    word-wrap: break-word;
+    font-size: smaller;
+}
+
+.product:hover{
+    transform: translate(0,-1vh);
+}
+
+.btn_add_prod{
+    display: flex;
+    margin: 0;
+    width: 23vw;
+    height: 24vh;
+    padding: 5vw;
+    align-items: center;
+    align-content: center;
+    border-radius: 2vh;
+}
+.btn_add_prod a{
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    font-size: xxx-large;
+    color: #FFF;
+}
+
+.btn_login{
+    height: 10vh;
+    width: 10vh;
+    background: none;
+    border: none;
+}
+
+.btn_navbar{
+    height: 15vh;
+    width: 15vh;
+    background: none;
+    border: none;
+}
+
+.btn_navbar:hover{
+    scale: 1 0.9;
+    translate: 0 -1vh;
+}
+
+.btn_nav{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 3vh;
+    background: none;
+    border: none;
+}
+
+.btn_close{
+    bottom: 100%;
+    left: 100%;
+    background: #E33A65;
+    border-radius: 100%;
+    width: 5vh;
+    height: 5vh;
+    border: none;
+}
+
+.modal_login{
+    z-index: 1;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    width: 30vw;
+    padding: 1%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    border-radius: 16px;
+    border: 4px solid #E33A65;
+    background: #F9D4DC;
+}
+
+.form_login{
+    display: flex;
+    flex-direction: column;
+    color: #E33A65;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    gap : 1vh;
+}
+
+.form_login input{
+    width: 90%;
+}
+
+.form_product{
+    display: flex;
+    color: #E33A65;
+    flex-wrap: wrap;
+    margin: 5vw 5vh;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1vw;
+}
+.form_product li{
+    width: 100%;
+    text-align: left;
+}
+
+.form_product hr{
+    position: relative;
+    left: -5%;
+    width: 90%;
+    height:  0.25vh;
+    color: #DDD;
+    stroke: none;
+}
+
+.form_product input{
+    height: 5vh;
+    padding: 0vh 1vw;
+}
+.form_product input[type="number"] {
+    width: 6VW;
+}
+input[type="text"]{
+    width: stretch;
+    flex: 1 0 0;
+}
+input[type="file"]{ 
+    flex: 1 0 0;
+}
+
+.form_product textarea{
+    width: 90%;
+    padding: 1vh 1vw;
+}
+
+.form_product button{
+    color: white;
+    margin: auto 0;
+    width: fit-content;
+    height: 5vh;
+    padding: 0.5vh 1vw;
+}
+
+.ingredient_container{
+    display: flex;
+    gap: 1vw;
+}
+.recipe{
+    display: flex;
+    gap: 1vw;
+}
+.keypad{
+    padding-right: 10vw;
+    gap: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.btn_cancel a, .btn_confirm a{
+    color: #FFF;
+}
+</style>
+<body>
+    #parse($template)
+</body>
+<script src="script.js">
+    const btn_navbar = document.querySelector('.btn_navbar');
+    const btn_cls_nav = document.querySelector('#cls_navbar');
+    const navbar = document.querySelector('.navbar');
+    btn_navbar.onclick = function () {
+        btn_navbar.style.transform = "translate(0,-15vh)";
+        navbar.style.display = "flex";
+        navbar.style.width = "10%";
+    }
+    btn_cls_nav.onclick = function () {
+        btn_navbar.style.transform = "translate(0,0)";
+        navbar.style.display = "none";
+        navbar.style.width = "0%";
+    }
+    const btn_login = document.querySelector('.btn_login');
+    const modal_login = document.querySelector('.modal_login')
+    const btn_cls_login = document.querySelector('#cls_login');
+    btn_login.onclick = function () {
+        modal_login.style.display = "flex";
+    }
+    btn_cls_login.onclick = function () {
+        modal_login.style.display = "none";
+    }
+
+    const products = document.querySelectorAll(".product");
+    products.forEach((item) => item.addEventListener("click", 
+        (e)=>{
+            item.transform = "matrix(0,2,0,2,50%,50%)";
+        }
+    ))
+</script>
+</html>

@@ -1,0 +1,18 @@
+<form action= "/cantLetrasPalabra" method="get">
+    <div class = "form-group">
+        <br>
+        <h1 style="text-align: center;"> Ingrese una palabra</h1>
+        <br>
+        <input id="palabra" name="palabra" class="form-control" type="text" value="$!{palabra}">
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Chequear palabra <i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>
