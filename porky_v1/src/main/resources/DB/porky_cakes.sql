@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 11-10-2023 a las 21:19:23
+=======
+-- Tiempo de generación: 21-10-2023 a las 18:31:47
+>>>>>>> fff6f8a6eda2e07ed9041bf8871efba5cd19b2c8
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -176,9 +180,15 @@ INSERT INTO `pasos_receta` (`ID_PRODUCTO`, `NRO_PASO`, `DESCRIPCION`) VALUES
 CREATE TABLE `producto` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `NOMBRE` varchar(50) NOT NULL,
+<<<<<<< HEAD
   `PRECIO_VTA` int(11) NOT NULL,
   `CANT_PORCIONES` int(11) NOT NULL,
   `DESCRIPCION_PRODUCTO` varchar(500) NOT NULL,
+=======
+  `PRECIO_VTA` int(11) DEFAULT NULL,
+  `CANT_PORCIONES` int(11) DEFAULT NULL,
+  `DESCRIPCION_PRODUCTO` varchar(500) DEFAULT NULL,
+>>>>>>> fff6f8a6eda2e07ed9041bf8871efba5cd19b2c8
   `img_producto` varchar(200) DEFAULT NULL,
   `img_aux1` varchar(150) DEFAULT NULL,
   `img_aux2` varchar(150) DEFAULT NULL,
@@ -197,7 +207,11 @@ INSERT INTO `producto` (`ID_PRODUCTO`, `NOMBRE`, `PRECIO_VTA`, `CANT_PORCIONES`,
 (5, 'Lemon pie', 1500, 12, 'El lemon pie, uno de los postres m s cl sicos, en la versi n de la querida Blanca Cotta.', 'lemonPie.jpg', NULL, NULL, NULL),
 (6, 'Torta bombón', 1200, 8, 'La tarta bombón es la combinación perfecta, con una mezcla de texturas y sabores realmente increíble: la galleta crujiente de la base con el sabor intenso de un buen dulce de leche, coronado con el chocolate amargo de la cobertura.', 'bruce.jpg', 'tortaBombon1.jpeg', 'tortaBombon2.jpg', 'tortaBombon3.jpg'),
 (7, 'Tiramisu', 2000, 12, 'Con vainillas compradas o con vainillas caseras, con queso blanco o con mascarpone, con caf  y con cacao en polvo, este postre siempre es un golazo', 'tiramisu.jpeg', 'tiramisu1.jpg', 'tiramisu2.jpg', 'tiramisu3.jpeg'),
+<<<<<<< HEAD
 (8, 'Tarta de Frutas', 1900, 12, 'Esta receta de tarta de frutas se prepara con crema chantill , si se quiere se puede optar por crema pastelera y, para los m s golosos se le puede sumar dulce de leche. Es ideal prepararla cuando l', 'tartaFrutas.jpg', 'tartaFrutas1.jpg', 'tartaFrutas2.jpeg', 'tartaFrutas3.webp');
+=======
+(8, 'Tarta de frutillas', 1900, 12, 'Esta receta de tarta de frutillas se prepara con crema chantill , si se quiere se puede optar por crema pastelera y, para los m s golosos se le puede sumar dulce de leche. Es ideal prepararla cuando l', 'tartaFrutillas.jpeg', 'tartaFrutillas1.jpeg', 'tartaFrutillas2.jpeg', 'tartaFrutillas3.jpeg');
+>>>>>>> fff6f8a6eda2e07ed9041bf8871efba5cd19b2c8
 
 --
 -- Índices para tablas volcadas
@@ -248,7 +262,11 @@ ALTER TABLE `materia_prima`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
+<<<<<<< HEAD
   MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+=======
+  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+>>>>>>> fff6f8a6eda2e07ed9041bf8871efba5cd19b2c8
 
 --
 -- Restricciones para tablas volcadas

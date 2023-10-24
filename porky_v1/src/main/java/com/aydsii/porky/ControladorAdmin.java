@@ -44,4 +44,17 @@ public class ControladorAdmin {
         model.put("template","template/agregarProducto.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
     };
+
+    @SuppressWarnings("rawtypes")
+    public static Route productoAgregado = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        String nombre = request.queryParams("name");
+        int precio_vta = Integer.parseInt(request.queryParams("price"));
+        int cant_porciones = Integer.parseInt(request.queryParams("cant_porciones"));
+        String img_producto = request.queryParams("photo");
+        String des_producto = request.queryParams("description");
+        ProductoDAO.insertarProducto(nombre, precio_vta, cant_porciones, des_producto, img_producto);
+        model.put("template","template/admin.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
+    };
 }

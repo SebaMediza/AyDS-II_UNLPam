@@ -12,7 +12,7 @@ public class ControladorCliente {
     @SuppressWarnings("rawtypes")
     public static Route indice = (Request request, Response response) -> {
         HashMap model = new HashMap();
-        model.put("template","template/indice.vsl");
+        model.put("template","template\\indice.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };
 }
