@@ -13,7 +13,7 @@ public class ProductoControlador {
     @SuppressWarnings("rawtypes")
     public static Route allProductos = (Request request, Response response) -> {
         HashMap model = new HashMap();
-        List<Producto> RES = ProductoDAO.buscarProducto();
+        HashMap<Integer, Producto> RES = ProductoDAO.buscarProducto(FireBaseController.getFirestoreConnection());
         model.put("RES", RES);
         model.put("template","template/carta.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));

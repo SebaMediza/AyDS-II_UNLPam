@@ -7,7 +7,7 @@
                     <div style="text-align: center">  
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
-                                <img src="$item.getImg_producto()" class="card-img-top" alt="...">
+                                <img src="$item.getImg_producto0()" class="card-img-top" alt="...">
                                 <h5 class="card-title">$item.getNombre()</h5>
                                 <p class="card-text">$item.getDescripcion_producto()</p>
                             </div>
