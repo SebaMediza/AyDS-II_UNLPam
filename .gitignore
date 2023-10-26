@@ -25,5 +25,7 @@ replay_pid*
 
 #carpetas del IDE
 .vscode/
+
 porky_v1/target
 porky_v1/src/main/resources/public/loginLogic/node_modules/
+

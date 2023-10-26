@@ -1,0 +1,18 @@
+<div>
+    <br>
+    <h1 style="text-align: center;">
+        #if($op == "+")   
+            La suma de $a + $b es igual $RES
+        #elseif($op == "-") 
+            La resta de $a - $b es igual $RES
+        #else 
+            Operador invalido
+        #end
+    </h1>
+</div>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>

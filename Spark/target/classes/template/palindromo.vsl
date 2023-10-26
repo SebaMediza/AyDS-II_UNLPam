@@ -1,0 +1,17 @@
+<div style="text-align: center;">
+    <h1 style="text-align: center;">
+        <br>
+        La palabra "$palabra": 
+        #if($RES)
+            Es palindromo
+        #else
+            No es palindromo
+        #end
+    </h1>
+</div>
+<br>
+<form action="/indice" method="get">
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Volver<i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</form>
