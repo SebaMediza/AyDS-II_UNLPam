@@ -7,18 +7,17 @@
                     <div style="text-align: center">  
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
-                                <img src="$item.getImg_producto()" class="card-img-top" alt="...">
+                                <img src="$item.getImg_producto0()" class="card-img-top" alt="...">
                                 <h5 class="card-title">$item.getNombre()</h5>
                                 <p class="card-text">$item.getDescripcion_producto()</p>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
                                 <li class="list-group-item">Rinde:  $item.getCant_porciones() porciones</li>
-                                <li class="list-group-item">Codigo Interno: $item.getId_producto()</li>
                             </ul>
                             <div class="card-body">
                                 <form action="/masinfo" method="get">
-                                    <input type="number" name="id" value="$item.getId_producto()" style="visibility: hidden;">
+                                    <input type="text" id="id" name="id" value="$item.getId()" style="visibility: hidden;">
                                     <input type="submit" value="Ver Mas" class="btn btn-primary">
                                 </form>
                                 <br>
