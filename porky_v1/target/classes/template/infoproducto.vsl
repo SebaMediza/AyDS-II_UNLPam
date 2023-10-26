@@ -2,14 +2,14 @@
         #foreach($item in $RES)
         <div style="display: inline-flex;">
             <div class="col">
-                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_aux1() alt=""></div>
+                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_producto1() alt=""></div>
                 <br>
-                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_aux2() alt=""></div>
+                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_producto2() alt=""></div>
                 <br>
-                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_aux3() alt=""></div>
+                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_producto3() alt=""></div>
             </div>
             <div>
-                <img src=$item.getImg_producto() alt="" width="500px" height=auto>
+                <img src=$item.getImg_producto0() alt="" width="500px" height=auto>
             </div>
             <div>
                 <h1>$item.getNombre()</h1>
@@ -36,50 +36,12 @@
             </div>
         </div>
         <hr>
-        <h5>Ingredientes:</h5>
-        <div style="display: inline-block">
-            <table>
-            #foreach($item in $RES3)
-            <tr>
-                <td>
-                    $item.getNombre_mp()
-                </td>
-            </tr>
-            #end
-            </table>
-        </div>
-        <div style="display: inline-block">
-            <table>
-            #foreach($item in $RES4)
-            <tr>
-                <td>
-                    $item.getCantidad() $item.getUnidad_medida()
-                </td>
-            </tr>
-            #end
-            </table>
-        </div>
-        
-                   
-        <hr>
-        #foreach($item2 in $RES2)
-            <table>
-                <tr>
-                    <th>Paso $item2.getNro_paso():</th>
-                </tr>
-                <tr>
-                    <td>$item2.getDescripcion()</td>
-                </tr>
-            </table>
-        #end
-        <hr>
         <div>
             <h3>Descripcion</h3>
             <p>$item.getDescripcion_producto()
             </p>
         </div>
-    </div>
-    #end
+        #end
     <div style="text-align: center;">
         <form action="/productos" method="get">
             <input type="submit" value="Volver" class="btn btn-primary">
