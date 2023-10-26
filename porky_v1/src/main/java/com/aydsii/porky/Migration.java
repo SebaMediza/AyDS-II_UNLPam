@@ -27,23 +27,15 @@ public class Migration {
         Integer contador = 0;
         ApiFuture<QuerySnapshot> future = firestore.collection("torta").get();
         List<QueryDocumentSnapshot> document = future.get().getDocuments();
+        System.out.println(document.size());
         for(QueryDocumentSnapshot documentSnapshot : document){
-            //System.out.println(documentSnapshot.getId() + "=>" + documentSnapshot.toObject(Producto.class));
-            //System.out.println(contador);
-            productoHashMap.put(contador,documentSnapshot.toObject(Producto.class));
+            Producto temp = documentSnapshot.toObject(Producto.class);
+            temp.setId(documentSnapshot.getId());
+            productoHashMap.put(contador,temp);
             contador++;
-            //System.out.println(contador);
-            /*System.out.println(documentSnapshot.get("nombre"));
-            System.out.println(documentSnapshot.get("precio_vta"));
-            System.out.println(documentSnapshot.get("cant_porciones"));
-            System.out.println(documentSnapshot.get("descripcion_producto"));
-            System.out.println(documentSnapshot.get("img_producto0"));
-            System.out.println(documentSnapshot.get("img_producto1"));
-            System.out.println(documentSnapshot.get("img_producto2"));
-            System.out.println(documentSnapshot.get("img_producto3"));*/
         }
-        System.out.println(productoHashMap.size());
         for(Producto producto : productoHashMap.values()){
+            System.out.println("Id: " + producto.getId());
             System.out.println("Nombre: " + producto.getNombre());
             System.out.println("Desc: " + producto.getDescripcion_producto());
             System.out.println("Cant_ porciones: " + producto.getCant_porciones());
@@ -80,11 +72,6 @@ public class Migration {
             System.out.println(producto.get(0).getCant_porciones());
             System.out.println(producto.get(0).getDescripcion_producto());
         }
-    }
-
-    public static void userAccess(Firestore firestore) throws FirebaseAuthException{
-        UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail("seba@mediza.com");
-       //v5DWbed3RMWEfwKZ9Pyv9tqJaRg1
     }
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, FirebaseAuthException {

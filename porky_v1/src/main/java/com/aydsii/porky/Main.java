@@ -12,9 +12,9 @@ public class Main {
         staticFiles.location("/public");
         //Lado del Cliente
         get("/home", ControladorCliente.indice);
-        get("/productos", ProductoControlador.allProductos);
-        get("/producto", ProductoControlador.nameQuerry);
-        get("/masinfo", ProductoControlador.moreInfo);
+        get("/productos", ProductoControlador.listarProductos);
+        get("/producto", ProductoControlador.buscarNombre);
+        get("/masinfo", ProductoControlador.masInformacion);
         get("/login", ControladorCliente.logIn);
         //Lado del administrador
         get("/admin", ControladorAdmin.admin);

@@ -14,11 +14,10 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
                                 <li class="list-group-item">Rinde:  $item.getCant_porciones() porciones</li>
-                                <li class="list-group-item">Codigo Interno: $item.getId_producto()</li>
                             </ul>
                             <div class="card-body">
                                 <form action="/masinfo" method="get">
-                                    <input type="number" name="id" value="$item.getId_producto()" style="visibility: hidden;">
+                                    <input type="text" id="id" name="id" value="$item.getId()" style="visibility: hidden;">
                                     <input type="submit" value="Ver Mas" class="btn btn-primary">
                                 </form>
                                 <br>

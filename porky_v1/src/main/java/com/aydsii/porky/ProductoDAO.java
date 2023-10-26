@@ -10,64 +10,56 @@ import org.sql2o.Sql2oException;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
-import com.google.cloud.firestore.WriteResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.FirebaseToken;
-import com.google.firebase.auth.UserRecord;
 
 public class ProductoDAO {
-    private static HashMap<Integer, Producto> productoHashMap = new HashMap<>();
-    public static HashMap<Integer, Producto> buscarProducto(Firestore firestore) throws InterruptedException, ExecutionException{
+    public static HashMap<Integer, Producto> listarProductos(Firestore firestore) throws InterruptedException, ExecutionException{
+        HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
         ApiFuture<QuerySnapshot> future = firestore.collection("torta").get();
         List<QueryDocumentSnapshot> document = future.get().getDocuments();
         for(QueryDocumentSnapshot documentSnapshot : document){
-            System.out.println(documentSnapshot.getId() + "=>" + documentSnapshot.toObject(Producto.class));
-            productoHashMap.put(contador,documentSnapshot.toObject(Producto.class));
+            Producto temp = documentSnapshot.toObject(Producto.class);
+            temp.setId(documentSnapshot.getId());
+            productoHashMap.put(contador,temp);
             contador++;
-        }
-        for(Producto producto : productoHashMap.values()){
-            System.out.println("Nombre: " + producto.getNombre());
-            System.out.println("Desc: " + producto.getDescripcion_producto());
-            System.out.println("Cant_ porciones: " + producto.getCant_porciones());
-            System.out.println("Precio: " + producto.getPrecio_vta());
-            System.out.println("img0" + producto.getImg_producto0());
-            System.out.println("img1" + producto.getImg_producto1());
-            System.out.println("img2" + producto.getImg_producto2());
-            System.out.println("img3" + producto.getImg_producto3());
         }
         return productoHashMap;
     }
 
-    public static List<Producto> masInformacion(int ID_PRODUCTO){
-        String querryString = "SELECT * FROM PRODUCTO WHERE ID_PRODUCTO = " + String.valueOf(ID_PRODUCTO);
-        List<Producto> querryResult = null;
-        try (Connection connection = sql2oDAO.getSql2oDAO().open()){
-            querryResult = connection.createQuery(querryString).executeAndFetch(Producto.class);
-        } catch (Sql2oException sql2oException) {
-            System.out.println(sql2oException);
+    public static HashMap<Integer, Producto> ampliarProducto(Firestore firestore, String id) throws InterruptedException, ExecutionException{
+        System.out.println(id);
+        HashMap<Integer, Producto> productoHashMap = new HashMap<>();
+        Integer contador = 0;
+        Query future = firestore.collection("torta").whereEqualTo("id", id);
+        ApiFuture<QuerySnapshot> apiFuture = future.get();
+        List<QueryDocumentSnapshot> lDocumentSnapshots = apiFuture.get().getDocuments();
+        System.out.println(lDocumentSnapshots.size());
+        for(QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots){
+            Producto temp = documentSnapshot.toObject(Producto.class);
+            temp.setId(documentSnapshot.getId());
+            productoHashMap.put(contador,temp);
+            contador++;
         }
-        return querryResult;
+        return productoHashMap;
     }
 
-    public static List<Producto> masInformacion(String nombre){
-        String querryString = "SELECT * FROM PRODUCTO WHERE UPPER(NOMBRE) LIKE '%" + nombre + "%'";
-        List<Producto> querryResult = null;
-        try (Connection connection = sql2oDAO.getSql2oDAO().open()){
-            querryResult = connection.createQuery(querryString).executeAndFetch(Producto.class);
-        } catch (Sql2oException sql2oException) {
-            System.out.println(sql2oException);
+    public static HashMap<Integer, Producto> buscarProductoNombre(Firestore firestore, String nombre) throws InterruptedException, ExecutionException{
+        HashMap<Integer, Producto> productoHashMap = new HashMap<>();
+        Integer contador = 0;
+        System.out.println("Desde el DAO: " + nombre);
+        Query future = firestore.collection("torta").whereArrayContains("tags", nombre);
+        ApiFuture<QuerySnapshot> apiFuture = future.get();
+        List<QueryDocumentSnapshot> lDocumentSnapshots = apiFuture.get().getDocuments();
+        for(QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots){
+            Producto temp = documentSnapshot.toObject(Producto.class);
+            temp.setId(documentSnapshot.getId());
+            System.out.println(temp.getNombre());
+            productoHashMap.put(contador,temp);
+            contador++;
         }
-        return querryResult;
+        return productoHashMap;
     }
 
     public static void insertarProducto(String nombre, int precio_vta, int cant_porciones, String descripcion_producto, String img_producto){
