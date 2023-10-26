@@ -1,5 +1,7 @@
 package com.aydsii.porky;
 
+import java.util.List;
+
 import lombok.Data;
 @Data
 public class Producto {
@@ -12,5 +14,5 @@ public class Producto {
     private String img_producto1;
     private String img_producto2;
     private String img_producto3;
-    private String[] tags;
+    private List<String> tags;
 }

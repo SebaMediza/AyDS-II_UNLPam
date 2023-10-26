@@ -53,7 +53,7 @@ public class ControladorAdmin {
         int cant_porciones = Integer.parseInt(request.queryParams("cant_porciones"));
         String img_producto = request.queryParams("photo");
         String des_producto = request.queryParams("description");
-        ProductoDAO.insertarProducto(nombre, precio_vta, cant_porciones, des_producto, img_producto);
+        ProductoDAO.insertarProducto(FireBaseController.getFirestoreConnection(), nombre, precio_vta, cant_porciones, des_producto, img_producto, "", "", "");
         model.put("template","template/admin.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
     };

@@ -1,18 +1,21 @@
 package com.aydsii.porky;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import org.sql2o.Connection;
-import org.sql2o.Sql2oException;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.FirestoreException;
 import com.google.cloud.firestore.Query;
 
+@SuppressWarnings("null")
 public class ProductoDAO {
     public static HashMap<Integer, Producto> listarProductos(Firestore firestore) throws InterruptedException, ExecutionException{
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
@@ -29,13 +32,11 @@ public class ProductoDAO {
     }
 
     public static HashMap<Integer, Producto> ampliarProducto(Firestore firestore, String id) throws InterruptedException, ExecutionException{
-        System.out.println(id);
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
         Query future = firestore.collection("torta").whereEqualTo("id", id);
         ApiFuture<QuerySnapshot> apiFuture = future.get();
         List<QueryDocumentSnapshot> lDocumentSnapshots = apiFuture.get().getDocuments();
-        System.out.println(lDocumentSnapshots.size());
         for(QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots){
             Producto temp = documentSnapshot.toObject(Producto.class);
             temp.setId(documentSnapshot.getId());
@@ -44,34 +45,69 @@ public class ProductoDAO {
         }
         return productoHashMap;
     }
-
+    
     public static HashMap<Integer, Producto> buscarProductoNombre(Firestore firestore, String nombre) throws InterruptedException, ExecutionException{
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
-        System.out.println("Desde el DAO: " + nombre);
         Query future = firestore.collection("torta").whereArrayContains("tags", nombre);
         ApiFuture<QuerySnapshot> apiFuture = future.get();
         List<QueryDocumentSnapshot> lDocumentSnapshots = apiFuture.get().getDocuments();
         for(QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots){
             Producto temp = documentSnapshot.toObject(Producto.class);
             temp.setId(documentSnapshot.getId());
-            System.out.println(temp.getNombre());
             productoHashMap.put(contador,temp);
             contador++;
         }
         return productoHashMap;
     }
 
-    public static void insertarProducto(String nombre, int precio_vta, int cant_porciones, String descripcion_producto, String img_producto){
-        if (img_producto.length() == 0){
-            img_producto = "null";
+    public static void insertarProducto(Firestore firestore, String nombre, int precio_vta, int cant_porciones, String descripcion_producto, String img_producto0, String img_producto1, String img_producto2, String img_producto3) throws InterruptedException, ExecutionException{
+        List<String> tags = new ArrayList<>();
+        HashMap<String, Object> nuevoProducto = new HashMap<>();
+        nuevoProducto.put("nombre", nombre);
+        nuevoProducto.put("precio_vta", String.valueOf(precio_vta));
+        nuevoProducto.put("cant_porciones", String.valueOf(cant_porciones));
+        nuevoProducto.put("descripcion_producto", descripcion_producto);
+        if(img_producto0.length() != 0){
+            nuevoProducto.put("img_producto0", img_producto0);
+        }else{
+            nuevoProducto.put("img_producto0", "NULL");
         }
-        String querryString = "INSERT INTO producto (NOMBRE, PRECIO_VTA, CANT_PORCIONES, DESCRIPCION_PRODUCTO, img_producto) VALUES(" + "'" + nombre + "'" + ", " + String.valueOf(precio_vta) + ", " + String.valueOf(cant_porciones) + ", " + "'" + descripcion_producto + "'" + ", " + img_producto + ")";
-        System.out.println(querryString);
-        try (Connection connection = sql2oDAO.getSql2oDAO().open()){
-            connection.createQuery(querryString).executeUpdate();
-        } catch (Sql2oException sql2oException) {
-            System.out.println(sql2oException);
+        if(img_producto1.length() != 0){
+            nuevoProducto.put("img_producto1", img_producto1);
+        }else{
+            nuevoProducto.put("img_producto1", "NULL");
+        }
+        if(img_producto2.length() != 0){
+            nuevoProducto.put("img_producto2", img_producto2);
+        }else{
+            nuevoProducto.put("img_producto2", "NULL");
+        }
+        if(img_producto3.length() != 0){
+            nuevoProducto.put("img_producto3", img_producto3);
+        }else{
+            nuevoProducto.put("img_producto3", "NULL");
+        }
+
+        String nombreMinusculas = nombre.toLowerCase();
+        tags.add(nombreMinusculas);
+        String[] palabras = nombreMinusculas.split(" ");
+        for (String palabra : palabras) {
+            palabra.toLowerCase();
+            tags.add(palabra);
+        }
+
+        nuevoProducto.put("tags", tags);
+        
+        ApiFuture<DocumentReference> future = firestore.collection("torta").add(nuevoProducto);
+        agregarId(firestore, future.get().getId(), nombre);
+    }
+    private static void agregarId(Firestore firestore, String id, String nombre) throws InterruptedException, ExecutionException{
+        try {
+            ApiFuture<WriteResult> future = firestore.collection("torta").document(id).update("id", id);
+            future.get().getUpdateTime();
+        } catch (FirestoreException firestoreException) {
+            System.out.println(firestoreException);
         }
     }
 }

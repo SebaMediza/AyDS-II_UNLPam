@@ -1,7 +1,6 @@
 package com.aydsii.porky;
 
 import java.util.HashMap;
-import java.util.List;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -33,11 +32,9 @@ public class ProductoControlador {
     public static Route buscarNombre = (Request request, Response response) -> {
         HashMap model = new HashMap();
         String temp = request.queryParams("nombre");
-        System.out.println(temp);
         HashMap<Integer, Producto> RES = ProductoDAO.buscarProductoNombre(FireBaseController.getFirestoreConnection(), temp);
         model.put("RES", RES);
         model.put("template","template/carta.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
     };
-
 }
