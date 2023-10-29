@@ -61,14 +61,14 @@ public class ProductoDAO {
         return productoHashMap;
     }
 
-    public static void insertarProducto(Firestore firestore, String nombre, int precio_vta, int cant_porciones, String descripcion_producto, String img_producto0, String img_producto1, String img_producto2, String img_producto3) throws InterruptedException, ExecutionException{
+    public static void insertarProducto(Firestore firestore, String nombre, String precio_vta, String cant_porciones, String descripcion_producto, String img_producto0, String img_producto1, String img_producto2, String img_producto3) throws InterruptedException, ExecutionException{
         System.out.println("en el producto DAO");
         try {
             List<String> tags = new ArrayList<>();
             HashMap<String, Object> nuevoProducto = new HashMap<>();
             nuevoProducto.put("nombre", nombre);
-            nuevoProducto.put("precio_vta", String.valueOf(precio_vta));
-            nuevoProducto.put("cant_porciones", String.valueOf(cant_porciones));
+            nuevoProducto.put("precio_vta", precio_vta);
+            nuevoProducto.put("cant_porciones", cant_porciones);
             nuevoProducto.put("descripcion_producto", descripcion_producto);
             if (img_producto0.length() != 0) {
                 nuevoProducto.put("img_producto0", img_producto0);
