@@ -22,6 +22,6 @@ public class Main {
         get("/admin/sobremi", ControladorAdmin.sobreMi);
         get("/admin/encargos", ControladorAdmin.encargos);
         get("/admin/productos/agregar", ControladorAdmin.addProducto);
-        get("/admin/productos/agregado", ControladorAdmin.productoAgregado);
+        get("/admin/agregado", ControladorAdmin.productoAgregado);
     }
 }

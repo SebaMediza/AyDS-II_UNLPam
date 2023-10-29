@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Nuevo Producto</h1>
+    </div>
+    <div>
+        <form class="form_product" action="/admin/agregado" method="get">
+            <li>Datos Generales</li>
+            <hr>
+            <input type="text" name="name" id="name" placeholder="Nombre">
+            <input type="number" name="price" id="price" placeholder="Precio">
+            <input type="number" name="cant_porciones" id="cant_porciones" placeholder="Cantidad de Porciones">
+            <hr>
+            <textarea name="description" id="1" cols="20" rows="3" placeholder="Descripción"></textarea>
+            <hr>
+            <div class="imageUpload">
+                <input type="file" class="inp" onchange="getImageData(event)" multiple />
+            </div>
+            <!--<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                <div style="display: flex; flex-direction: column;">
+                    <label for="photo0">Foto 1</label>
+                    <img id="imagenRenderizada0" style="display: none; width: 256px; height: 256px;">
+                    <br>
+                    <input type="file" name="photo0" id="photo0" onchange="renderizarArchivo0()">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="photo1">Foto 2</label>
+                    <img id="imagenRenderizada1" style="display: none; width: 256px; height: 256px;">
+                    <br>
+                    <input type="file" name="photo1" id="photo1" onchange="renderizarArchivo1()">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="photo2">Foto 3</label>
+                    <img id="imagenRenderizada2" style="display: none; width: 256px; height: 256px;">
+                    <br>
+                    <input type="file" name="photo2" id="photo2" onchange="renderizarArchivo2()">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="photo3">Foto 4</label>
+                    <img id="imagenRenderizada3" style="display: none; width: 256px; height: 256px;">
+                    <br>
+                    <input type="file" name="photo3" id="photo3" onchange="renderizarArchivo3()">
+                </div>
+            </div>-->
+            <hr>
+            <div class="keypad">
+                <input type="submit" value="Confirmar" class="btn_confirm" onclick="uploadImage()">
+            </div>
+        </form>
+    </div>
+    </body>
+<script src="../public/js/script.js"></script>
+</html>

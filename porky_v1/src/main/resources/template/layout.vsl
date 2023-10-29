@@ -85,32 +85,32 @@
                 <div class="col-4" style="border: 1px solid black;">
                     <p style="font-weight: bold;">Contactanos</p>
                     <div class="row">
-                        <div class="col"><img src="phone-call.png" alt=""></div>
+                        <div class="col"><img src="img/phone-call.png" alt=""></div>
                         <div class="col">+54 9 2302-XXXXXX</div>
                     </div>
                     <div class="row">
-                        <div class="col"><img src="location.png" alt=""></div>
+                        <div class="col"><img src="img/location.png" alt=""></div>
                         <div class="col">Calle XX entre XX y XX</div>
                     </div>
                     <div class="row">
-                        <div class="col"><img src="email.png" alt=""></div>
+                        <div class="col"><img src="img/email.png" alt=""></div>
                         <div class="col">XXXXXXXXXX@XXXXXX.com</div>
                     </div>
                 </div>
                 <div class="col-4" style="border: 1px solid black;">
                     <p style="font-weight: bold;">Formas de Pago</p>
                     <div class="row">
-                        <div class="col-4"><img src="Mastercard-Logo-2016.png" alt=""></div>
-                        <div class="col-4"><img src="mercado-pago.png" alt=""></div>
-                        <div class="col-4"><img src="visa-logo.png" alt=""></div>
+                        <div class="col-4"><img src="img/Mastercard-Logo-2016.png" alt=""></div>
+                        <div class="col-4"><img src="img/mercado-pago.png" alt=""></div>
+                        <div class="col-4"><img src="img/visa-logo.png" alt=""></div>
                     </div>
                 </div>
                 <div class="col-4" style="border: 1px solid black;">
                     <div class="custom-footer-div">
                         <p style="font-weight: bold;">Buscanos en las Redes</p>
                         <div class="row">
-                            <div class="col"><img src="instagramLogo.png" alt=""></div>
-                            <div class="col"><img src="facebookLogo.png" alt=""></div>
+                            <div class="col"><img src="img/instagramLogo.png" alt=""></div>
+                            <div class="col"><img src="img/facebookLogo.png" alt=""></div>
                         </div>
                     </div>
                 </div>

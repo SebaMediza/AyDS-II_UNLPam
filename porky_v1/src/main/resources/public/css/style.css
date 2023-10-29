@@ -1,18 +1,10 @@
 @font-face {
     font-family: Quicksand Light;
-    src: url(fonts/Quicksand/Light.ttf);
+    src: url(fuentes/Light.ttf);
 }
 @font-face {
     font-family: Quicksand Medium;
-    src: url(fonts/Quicksand/Medium.ttf);
-}
-@font-face {
-    font-family: Quicksand Regular;
-    src: url(fonts/Quicksand/Regular.ttf);
-}
-@font-face {
-    font-family: Quicksand SemiBold;
-    src: url(fonts/Quicksand/SemiBold.ttf);
+    src: url(fuentes/Medium.ttf);
 }
 
 body{
@@ -291,13 +283,23 @@ button:hover{
     width: 90%;
 }
 
+.imagenes{
+    display: flex;
+    flex-direction: row;
+}
+
+.imagenesDiv{
+    display: flex;
+    flex-direction: column;
+}
+
 .form_product{
     display: flex;
     color: #E33A65;
     flex-wrap: wrap;
     margin: 5vw 5vh;
     align-items: flex-start;
-    width: 100%;
+    width: 90%;
     gap: 1vw;
 }
 .form_product li{
