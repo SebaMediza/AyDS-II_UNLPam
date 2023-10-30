@@ -63,6 +63,11 @@
                         <button onclick="SubmitEvent" class="btn btn-outline-primary">Productos</button>
                     </form>
                 </li>
+                <li class="nav-item">
+                    <form action="/admin" method="get">
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Panel de Control</button>
+                    </form>
+                </li>
             </ul>
             <form class="d-flex" role="search" action="/producto" method="get">
                 <input class="form-control me-2" type="search" name="nombre" placeholder="Buscar producto"
