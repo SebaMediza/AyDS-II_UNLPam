@@ -70,25 +70,25 @@ public class ProductoDAO {
             nuevoProducto.put("precio_vta", precio_vta);
             nuevoProducto.put("cant_porciones", cant_porciones);
             nuevoProducto.put("descripcion_producto", descripcion_producto);
-            if (img_producto0.length() != 0) {
+            if (img_producto0 != null) {
                 nuevoProducto.put("img_producto0", img_producto0);
                 System.out.println(nuevoProducto.get("img_producto0"));
             } else {
                 nuevoProducto.put("img_producto0", "NULL");
             }
-            if (img_producto1.length() != 0) {
+            if (img_producto1 != null) {
                 nuevoProducto.put("img_producto1", img_producto1);
                 System.out.println(nuevoProducto.get("img_producto1"));
             } else {
                 nuevoProducto.put("img_producto1", "NULL");
             }
-            if (img_producto2.length() != 0) {
+            if (img_producto2 != null) {
                 nuevoProducto.put("img_producto2", img_producto2);
                 System.out.println(nuevoProducto.get("img_producto2"));
             } else {
                 nuevoProducto.put("img_producto2", "NULL");
             }
-            if (img_producto3.length() != 0) {
+            if (img_producto3 != null) {
                 nuevoProducto.put("img_producto3", img_producto3);
                 System.out.println(nuevoProducto.get("img_producto3"));
             } else {

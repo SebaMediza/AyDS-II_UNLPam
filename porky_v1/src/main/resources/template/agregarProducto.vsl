@@ -84,7 +84,7 @@
         <div class="content">
             <div class="imageUpload">
                 <input type="file" class="inp" onchange="getImageData(event)" multiple />
-                <button onclick="selectImage()" class="selectImage">Select Images</button>
+                
                 <div class="metaData"></div>
                 <div class="progressBar">
                     <div class="progress"></div>
