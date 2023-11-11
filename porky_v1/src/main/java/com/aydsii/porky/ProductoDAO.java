@@ -61,46 +61,56 @@ public class ProductoDAO {
         return productoHashMap;
     }
 
-    public static void insertarProducto(Firestore firestore, String nombre, int precio_vta, int cant_porciones, String descripcion_producto, String img_producto0, String img_producto1, String img_producto2, String img_producto3) throws InterruptedException, ExecutionException{
-        List<String> tags = new ArrayList<>();
-        HashMap<String, Object> nuevoProducto = new HashMap<>();
-        nuevoProducto.put("nombre", nombre);
-        nuevoProducto.put("precio_vta", String.valueOf(precio_vta));
-        nuevoProducto.put("cant_porciones", String.valueOf(cant_porciones));
-        nuevoProducto.put("descripcion_producto", descripcion_producto);
-        if(img_producto0.length() != 0){
-            nuevoProducto.put("img_producto0", img_producto0);
-        }else{
-            nuevoProducto.put("img_producto0", "NULL");
-        }
-        if(img_producto1.length() != 0){
-            nuevoProducto.put("img_producto1", img_producto1);
-        }else{
-            nuevoProducto.put("img_producto1", "NULL");
-        }
-        if(img_producto2.length() != 0){
-            nuevoProducto.put("img_producto2", img_producto2);
-        }else{
-            nuevoProducto.put("img_producto2", "NULL");
-        }
-        if(img_producto3.length() != 0){
-            nuevoProducto.put("img_producto3", img_producto3);
-        }else{
-            nuevoProducto.put("img_producto3", "NULL");
-        }
+    public static void insertarProducto(Firestore firestore, String nombre, String precio_vta, String cant_porciones, String descripcion_producto, String img_producto0, String img_producto1, String img_producto2, String img_producto3) throws InterruptedException, ExecutionException{
+        System.out.println("en el producto DAO");
+        try {
+            List<String> tags = new ArrayList<>();
+            HashMap<String, Object> nuevoProducto = new HashMap<>();
+            nuevoProducto.put("nombre", nombre);
+            nuevoProducto.put("precio_vta", precio_vta);
+            nuevoProducto.put("cant_porciones", cant_porciones);
+            nuevoProducto.put("descripcion_producto", descripcion_producto);
+            if (img_producto0.length() != 0) {
+                nuevoProducto.put("img_producto0", img_producto0);
+                System.out.println(nuevoProducto.get("img_producto0"));
+            } else {
+                nuevoProducto.put("img_producto0", "NULL");
+            }
+            if (img_producto1.length() != 0) {
+                nuevoProducto.put("img_producto1", img_producto1);
+                System.out.println(nuevoProducto.get("img_producto1"));
+            } else {
+                nuevoProducto.put("img_producto1", "NULL");
+            }
+            if (img_producto2.length() != 0) {
+                nuevoProducto.put("img_producto2", img_producto2);
+                System.out.println(nuevoProducto.get("img_producto2"));
+            } else {
+                nuevoProducto.put("img_producto2", "NULL");
+            }
+            if (img_producto3.length() != 0) {
+                nuevoProducto.put("img_producto3", img_producto3);
+                System.out.println(nuevoProducto.get("img_producto3"));
+            } else {
+                nuevoProducto.put("img_producto3", "NULL");
+            }
 
-        String nombreMinusculas = nombre.toLowerCase();
-        tags.add(nombreMinusculas);
-        String[] palabras = nombreMinusculas.split(" ");
-        for (String palabra : palabras) {
-            palabra.toLowerCase();
-            tags.add(palabra);
-        }
+            String nombreMinusculas = nombre.toLowerCase();
+            tags.add(nombreMinusculas);
+            String[] palabras = nombreMinusculas.split(" ");
+            for (String palabra : palabras) {
+                palabra.toLowerCase();
+                tags.add(palabra);
+            }
 
-        nuevoProducto.put("tags", tags);
+            nuevoProducto.put("tags", tags);
+
+            ApiFuture<DocumentReference> future = firestore.collection("torta").add(nuevoProducto);
+            agregarId(firestore, future.get().getId(), nombre);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         
-        ApiFuture<DocumentReference> future = firestore.collection("torta").add(nuevoProducto);
-        agregarId(firestore, future.get().getId(), nombre);
     }
     private static void agregarId(Firestore firestore, String id, String nombre) throws InterruptedException, ExecutionException{
         try {
