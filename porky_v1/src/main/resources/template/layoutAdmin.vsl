@@ -63,6 +63,11 @@
                         <button onclick="SubmitEvent" class="btn btn-outline-primary">Productos</button>
                     </form>
                 </li>
+                <li class="nav-item">
+                    <form action="/admin" method="get">
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Panel de Control</button>
+                    </form>
+                </li>
             </ul>
             <form class="d-flex" role="search" action="/producto" method="get">
                 <input class="form-control me-2" type="search" name="nombre" placeholder="Buscar producto"
@@ -78,16 +83,14 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li style="display: flex; justify-content: center;">
-                                <form action="/login" method="get">
-                                    <button type="submit">Iniciar Sesion</button>
-                                </form>
+                                <p>Agustina</p>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li style="display: flex; justify-content: center;">
-                                <form action="/singup" method="get">
-                                    <button type="submit">Registrarse</button>
+                                <form action="/logout" method="get">
+                                    <button type="submit">Cerrar Sesion</button>
                                 </form>
                             </li>
                         </ul>
