@@ -64,8 +64,13 @@
                     </form>
                 </li>
                 <li class="nav-item">
-                    <form action="/admin" method="get">
-                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Panel de Control</button>
+                    <form action="/#" method="get">
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Perdir Presupuesto</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <form action="/carrito" method="get">
+                        <button onclick="SubmitEvent" class="btn btn-outline-primary">Carrito</button>
                     </form>
                 </li>
             </ul>
@@ -83,7 +88,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li style="display: flex; justify-content: center;">
-                                <p>Agustina</p>
+                                <p>Lorem</p>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">

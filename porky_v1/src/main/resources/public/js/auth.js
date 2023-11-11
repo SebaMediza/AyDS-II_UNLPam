@@ -69,7 +69,7 @@ function login () {
     // Declare user variable
     var user = auth.currentUser
     headres.append('uid', user.uid);
-    window.location.href = 'http://localhost:4567/uhome?uid=' + user.uid;
+    window.location.href = 'http://localhost:4567/home?uid=' + user.uid;
     //console.log(user.uid)
     //document.getElementById("uid").value = user.uid;
     // Done
