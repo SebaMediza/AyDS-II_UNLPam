@@ -21,6 +21,8 @@ public class ControladorCliente {
         HashMap model = new HashMap();
         String layout = "";
         String uid = request.queryParams("uid");
+        String headreUid = request.headers("uid");
+        System.out.println(headreUid);
         System.out.println(uid);
         if(uid.matches(adminUid)){
             layout = "template/layoutAdmin.vsl";

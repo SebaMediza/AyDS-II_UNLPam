@@ -19,7 +19,7 @@ function register () {
   // Get all our input fields
   email = document.getElementById('email').value
   password = document.getElementById('password').value
-  full_name = document.getElementById('full_name').value
+  //full_name = document.getElementById('full_name').value
 
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
@@ -65,13 +65,15 @@ function login () {
   
   auth.signInWithEmailAndPassword(email, password)
   .then(function() {
+    var headres = new Headers;
     // Declare user variable
     var user = auth.currentUser
+    headres.append('uid', user.uid);
     window.location.href = 'http://localhost:4567/uhome?uid=' + user.uid;
-    console.log(user.uid)
-    document.getElementById("uid").value = user.uid;
+    //console.log(user.uid)
+    //document.getElementById("uid").value = user.uid;
     // Done
-    alert('User Logged In!!')
+    //alert('User Logged In!!')
   })
   .catch(function(error) {
     // Firebase will use this to alert of its errors
@@ -81,7 +83,10 @@ function login () {
   })
 }
 
-
+function logOut(){
+  var uid = headres.get('uid')
+  auth.singOut(uid)
+}
 
 
 // Validate Functions
