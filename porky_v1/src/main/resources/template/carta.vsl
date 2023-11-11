@@ -21,7 +21,10 @@
                                     <input type="submit" value="Ver Mas" class="btn btn-primary">
                                 </form>
                                 <br>
-                                <button class="btn btn-primary">Agregar al Carrito</button>
+                                <form action="/carrito" method="get">
+                                    <input type="text" id="item" name="item" value="$item.getId()" style="visibility: hidden;">
+                                    <button class="btn btn-primary">Agregar al Carrito</button>
+                                </form>
                             </div>
                         </div>
                     </div>

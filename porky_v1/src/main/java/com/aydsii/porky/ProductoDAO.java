@@ -3,65 +3,84 @@ package com.aydsii.porky;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 import java.util.concurrent.ExecutionException;
-
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreException;
 import com.google.cloud.firestore.Query;
 
 @SuppressWarnings("null")
 public class ProductoDAO {
-    public static HashMap<Integer, Producto> listarProductos(Firestore firestore) throws InterruptedException, ExecutionException{
+    public static HashMap<Integer, Producto> listarProductos(Firestore firestore)
+            throws InterruptedException, ExecutionException {
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
         ApiFuture<QuerySnapshot> future = firestore.collection("torta").get();
         List<QueryDocumentSnapshot> document = future.get().getDocuments();
-        for(QueryDocumentSnapshot documentSnapshot : document){
+        for (QueryDocumentSnapshot documentSnapshot : document) {
             Producto temp = documentSnapshot.toObject(Producto.class);
             temp.setId(documentSnapshot.getId());
-            productoHashMap.put(contador,temp);
+            productoHashMap.put(contador, temp);
             contador++;
         }
         return productoHashMap;
     }
 
-    public static HashMap<Integer, Producto> ampliarProducto(Firestore firestore, String id) throws InterruptedException, ExecutionException{
+    public static HashMap<Integer, Producto> ampliarProducto(Firestore firestore, String id)
+            throws InterruptedException, ExecutionException {
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
         Query future = firestore.collection("torta").whereEqualTo("id", id);
         ApiFuture<QuerySnapshot> apiFuture = future.get();
         List<QueryDocumentSnapshot> lDocumentSnapshots = apiFuture.get().getDocuments();
-        for(QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots){
+        for (QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots) {
             Producto temp = documentSnapshot.toObject(Producto.class);
             temp.setId(documentSnapshot.getId());
-            productoHashMap.put(contador,temp);
-            contador++;
-        }
-        return productoHashMap;
-    }
-    
-    public static HashMap<Integer, Producto> buscarProductoNombre(Firestore firestore, String nombre) throws InterruptedException, ExecutionException{
-        HashMap<Integer, Producto> productoHashMap = new HashMap<>();
-        Integer contador = 0;
-        Query future = firestore.collection("torta").whereArrayContains("tags", nombre);
-        ApiFuture<QuerySnapshot> apiFuture = future.get();
-        List<QueryDocumentSnapshot> lDocumentSnapshots = apiFuture.get().getDocuments();
-        for(QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots){
-            Producto temp = documentSnapshot.toObject(Producto.class);
-            temp.setId(documentSnapshot.getId());
-            productoHashMap.put(contador,temp);
+            productoHashMap.put(contador, temp);
             contador++;
         }
         return productoHashMap;
     }
 
-    public static void insertarProducto(Firestore firestore, String nombre, String precio_vta, String cant_porciones, String descripcion_producto, String img_producto0, String img_producto1, String img_producto2, String img_producto3) throws InterruptedException, ExecutionException{
+    public static HashMap<Integer, Producto> buscarProductoNombre(Firestore firestore, String carritoList)
+            throws InterruptedException, ExecutionException {
+        HashMap<Integer, Producto> productoHashMap = new HashMap<>();
+        Integer contador = 0;
+        Query future = firestore.collection("torta").whereArrayContains("tags", carritoList);
+        ApiFuture<QuerySnapshot> apiFuture = future.get();
+        List<QueryDocumentSnapshot> lDocumentSnapshots = apiFuture.get().getDocuments();
+        for (QueryDocumentSnapshot documentSnapshot : lDocumentSnapshots) {
+            Producto temp = documentSnapshot.toObject(Producto.class);
+            temp.setId(documentSnapshot.getId());
+            productoHashMap.put(contador, temp);
+            contador++;
+        }
+        return productoHashMap;
+    }
+
+    public static Vector<Producto> buscarProductoId(Firestore firestore, Vector<String> nombre)
+            throws InterruptedException, ExecutionException {
+        Vector<Producto> productoHashMap = new Vector<>();
+        for (String name : nombre) {
+            ApiFuture<QuerySnapshot> future = firestore.collection("torta").whereEqualTo("id", name).get();
+            List<QueryDocumentSnapshot> lDocumentSnapshots = future.get().getDocuments();
+            for (DocumentSnapshot documentSnapshot : lDocumentSnapshots) {
+                productoHashMap.add(documentSnapshot.toObject(Producto.class));
+            }
+        }
+        return productoHashMap;
+    }
+
+    public static void insertarProducto(Firestore firestore, String nombre, String precio_vta, String cant_porciones,
+            String descripcion_producto, String img_producto0, String img_producto1, String img_producto2,
+            String img_producto3) throws InterruptedException, ExecutionException {
         System.out.println("en el producto DAO");
         try {
             List<String> tags = new ArrayList<>();
@@ -110,9 +129,11 @@ public class ProductoDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
-    private static void agregarId(Firestore firestore, String id, String nombre) throws InterruptedException, ExecutionException{
+
+    private static void agregarId(Firestore firestore, String id, String nombre)
+            throws InterruptedException, ExecutionException {
         try {
             ApiFuture<WriteResult> future = firestore.collection("torta").document(id).update("id", id);
             future.get().getUpdateTime();
