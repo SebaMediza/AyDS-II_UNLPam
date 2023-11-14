@@ -12,6 +12,7 @@ import spark.template.velocity.VelocityTemplateEngine;
 @SuppressWarnings("unchecked")
 public class CarritoController {
     private static Vector<String> carritoList = new Vector<>();
+    
     public static Route carrito = (Request request, Response response) -> {
         String item = request.queryParams("item");
         carritoList.add(item);

@@ -22,8 +22,8 @@
                                 </form>
                                 <br>
                                 <form action="/carrito" method="get">
-                                    <input type="text" id="item" name="item" value="$item.getId()" style="visibility: hidden;">
                                     <button class="btn btn-primary">Agregar al Carrito</button>
+                                    <input type="text" id="item" name="item" value="$item.getId()" style="visibility: hidden;">
                                 </form>
                             </div>
                         </div>
