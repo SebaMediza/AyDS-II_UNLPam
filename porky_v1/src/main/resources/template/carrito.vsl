@@ -1,16 +1,34 @@
 <h1>Mi Carrito</h1>
-#foreach($item in $RES)
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="$item.getImg_producto0()" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">$item.getNombre()</h5>
-        <p class="card-text">$item.getDescripcion_producto()</p>
+<div style="display: flex; flex-direction: row;">
+  <div style="width: 50%; scroll-behavior: smooth;">
+    <section style="text-align: center;">
+      <h3>Productos</h3>
+    </section>
+    #foreach($item in $RES)
+    <div class="card mb-3" style="max-width: auto">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="$item.getImg_producto0()" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">$item.getNombre()</h5>
+            <p class="card-text">$item.getDescripcion_producto()</p>
+            <h4 class="card-text">$$item.getPrecio_vta()</h4>
+          </div>
+        </div>
       </div>
     </div>
+    #end
+  </div>
+  <div style="width: 50%;">
+    <section style="text-align: center;">
+      <h3>Total</h3>
+      <h4>Su total es: $$TOTAL</h4>
+      <section style="display: flex; flex-direction: row; justify-content: space-around; justify-content: center;">
+        <button>Proceder a Pagar</button>
+        <button>Continuar Comprando</button>
+      </section>
+    </section>
   </div>
 </div>
-#end
