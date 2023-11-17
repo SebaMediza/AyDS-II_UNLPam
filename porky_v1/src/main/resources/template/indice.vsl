@@ -1,5 +1,5 @@
-    <div class="main-container">
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="main-container" style="max-width: 100%; overflow: hidden; margin: 0;">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" style="width: auto;">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="100">
                     <img src="img/cropped-851-315-1324796.png" class="d-block w-100" alt="...">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <br>
-        <div id="contenedorCartas">
+        <div id="contenedorCartas" style="justify-content: center;">
             <div class="row">
                 <div class="col">
                     <div class="card mb-3" style="max-width: 540px;">

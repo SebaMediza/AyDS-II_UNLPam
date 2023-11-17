@@ -1,6 +1,7 @@
 package com.aydsii.porky;
 
 import java.util.HashMap;
+
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -57,11 +58,5 @@ public class ProductoControlador {
             layout = "template/layoutAdmin.vsl";
         }
         return new VelocityTemplateEngine().render(new ModelAndView(model, layout));
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static Route carrtio = (Request request, Response response) -> {
-        HashMap model = new HashMap();
-        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layoutUser.vsl"));
     };
 }

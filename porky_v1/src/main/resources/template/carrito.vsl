@@ -1,0 +1,49 @@
+<h1>Mi Carrito</h1>
+<div style="display: flex; flex-direction: row;">
+  <div style="width: 50%; scroll-behavior: smooth; height: 650px; overflow: auto;">
+    <section style="text-align: center;">
+      <h3>Productos</h3>
+    </section>
+    #foreach($item in $RES)
+    <div class="card mb-3" style="max-width: auto">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="$item.getImg_producto0()" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">$item.getNombre()</h5>
+            <p class="card-text">$item.getDescripcion_producto()</p>
+            <h4 class="card-text">$$item.getPrecio_vta()</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    #end
+  </div>
+  <div style="width: 50%;">
+    <section style="text-align: center;">
+      <h3>Total</h3>
+      <h4>Su total es: $$TOTAL</h4>
+      <section style="display: flex; flex-direction: column; justify-content: space-around; justify-content: center; width: 50%;">
+        <form action="#" style="display: flex; flex-direction: column;">
+          <label for="nroTarjeta">Número de la Tarjeta</label>
+          <input type="number" name="nroTarjeta" id="nroTarjeta">
+          <br>
+          <label for="nombreTarjeta">Titular de la Tarjeta</label>
+          <input type="text" name="nombreTarjeta" id="nombreTarjeta">
+          <br>
+          <label for="fechaVencimiento">Fecha de Vencimiento</label>
+          <input type="date" name="fechaVencimiento" id="fechaVencimiento">
+          <br>
+          <label for="cvv">Codigo de Seguridad</label>
+          <input type="number" name="cvv" id="cvv">
+          <br>
+        </form>
+        <button>Pagar</button>
+      </section>
+      <br><br>
+      <button>Continuar Comprando</button>
+    </section>
+  </div>
+</div>
