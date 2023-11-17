@@ -20,6 +20,7 @@ public class Main {
         get("/login", ControladorCliente.logIn);
         get("/singup", ControladorCliente.singUp);
         get("/logout", ControladorCliente.logOut);
+        get("/presupuesto", ControladorCliente.presupuesto);
         //Productos
         get("/productos", ProductoControlador.listarProductos);
         get("/producto", ProductoControlador.buscarNombre);
