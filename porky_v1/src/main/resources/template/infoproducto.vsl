@@ -1,53 +1,85 @@
-    <div>
-        #foreach($item in $RES)
-        <div style="display: inline-flex;">
-            <div class="col">
-                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_producto1() alt=""></div>
-                <br>
-                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_producto2() alt=""></div>
-                <br>
-                <div class="row" style="width: 150px; height: auto"><img src=$item.getImg_producto3() alt=""></div>
-            </div>
-            <div>
-                <img src=$item.getImg_producto0() alt="" width="500px" height=auto>
-            </div>
-            <div>
-                <h1>$item.getNombre()</h1>
-                <h3>$$item.getPrecio_vta()</h3>
+<br>
+<div class="container">
+    #foreach($item in $RES)
+    <section style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <div class="imgCont">
+            <img class="imgAux" src=$item.getImg_producto1() alt="">
+            <img class="imgAux" src=$item.getImg_producto2() alt="">
+            <img class="imgAux" src=$item.getImg_producto3() alt="">
+        </div>
+        <div class="imgCont"><img class="mainImg" src=$item.getImg_producto0() alt=""></div>
+        <div class="infoCont">
+            <h1>$item.getNombre()</h1>
+            <hr>
+            <h3>$$item.getPrecio_vta()</h3>
+            <hr>
+            <h4>Descripcion:</h4>
+            <p>$item.getDescripcion_producto()</p>
+            <hr>
+            <div style="display: flex; flex-direction: row; justify-content: space-around;">
                 <div>
-                    <h5>Metodos de Pago</h5>
-                </div>
-                <hr>
-                <h5>Cantidad:
-                <select>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                <!-- Puedes agregar más opciones según sea necesario -->
-                </select>
-                </h5>
-
-                <div>
+                    <form action="/presupuesto" method="get">
+                        <input type="text" name="item" id="name" value=$item.getId() style="visibility: hidden;">
+                        <br>
+                        <button class="btn btn-primary btn-lg">Comprar</button>
+                    </form>
                     <br>
+                </div>
+                <div>
                     <form action="/carrito" method="get">
                         <input type="text" name="item" id="name" value=$item.getId() style="visibility: hidden;">
-                        <button class="btn btn-primary" type="submit">Añadir al Carrito</button>
+                        <br>
+                        <button class="btn btn-secondary btn-lg" type="submit">Añadir al Carrito</button>
                     </form>
-                    O
-                    <button class="btn btn-primary">Comprar</button>
                 </div>
             </div>
+            
         </div>
-        <hr>
-        <div>
-            <h3>Descripcion</h3>
-            <p>$item.getDescripcion_producto()
-            </p>
-        </div>
-        #end
+    </section>
+    #end
     <div style="text-align: center;">
         <form action="/productos" method="get">
             <input type="submit" value="Volver" class="btn btn-primary">
-         </form>
+        </form>
     </div>
     <br>
+</div>
+<br>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(247,201,239);*/
+        background: radial-gradient(circle, rgba(232,181,181,1) 0%, rgba(241,211,211,1) 25%, rgba(255,255,255,1) 50%, rgba(251,227,247,1) 75%, rgba(247,201,239,1) 100%);
+        border-radius: 20px;
+        border: 5px solid rgb(232,181,181);
+    }
+    .imgAux {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        border: 5px solid rgb(232,181,181);
+        border-radius: 15px;
+    }
+    .imgCont{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .mainImg {
+        width: 500px;
+        height: 500px;
+        margin: 10px;
+        border: 5px solid rgb(232,181,181);
+        border-radius: 15px;
+    }
+    .infoCont{
+        border: 2px solid rgb(232,181,181);
+        border-radius: 15px;
+        padding: 5px;
+        
+    }
+</style>
