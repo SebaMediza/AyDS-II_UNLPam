@@ -1,4 +1,6 @@
-<h1>Mi Carrito</h1>
+<div style="text-align: center;">
+  <h1>Mi Carrito</h1>
+</div>
 <div style="display: flex; flex-direction: row;">
   <div style="width: 50%; scroll-behavior: smooth; height: 650px; overflow: auto;">
     <section style="text-align: center;">
@@ -21,29 +23,31 @@
     </div>
     #end
   </div>
-  <div style="width: 50%;">
+  <div style="width: 50%; border-left: 1px solid black;">
     <section style="text-align: center;">
       <h3>Total</h3>
       <h4>Su total es: $$TOTAL</h4>
-      <section style="display: flex; flex-direction: column; justify-content: space-around; justify-content: center; width: 50%;">
-        <form action="#" style="display: flex; flex-direction: column;">
-          <label for="nroTarjeta">Número de la Tarjeta</label>
-          <input type="number" name="nroTarjeta" id="nroTarjeta">
-          <br>
-          <label for="nombreTarjeta">Titular de la Tarjeta</label>
-          <input type="text" name="nombreTarjeta" id="nombreTarjeta">
-          <br>
-          <label for="fechaVencimiento">Fecha de Vencimiento</label>
-          <input type="date" name="fechaVencimiento" id="fechaVencimiento">
-          <br>
-          <label for="cvv">Codigo de Seguridad</label>
-          <input type="number" name="cvv" id="cvv">
-          <br>
-        </form>
-        <button>Pagar</button>
+      <section style="width: 50%;" class="mx-auto text-center">
+        <div class="mb-3">
+          <label for="nroTarjeta" class="form-label">Numero de Tarjeta</label>
+          <input type="number" class="form-control" id="nroTarjeta" placeholder="XXXX XXXX XXXX XXXX">
+        </div>
+        <div class="mb-3">
+          <label for="titular" class="form-label">Titular</label>
+          <input type="email" class="form-control" id="titular" placeholder="Análisis y Diseño de Sistemas II">
+        </div>
+        <div class="mb-3">
+          <label for="fechaVto" class="form-label">Fecha de Vencimiento</label>
+          <input type="text" class="form-control" id="fechaVto" placeholder="MM/YY">
+        </div>
+        <div class="mb-3">
+          <label for="CVV" class="form-label">CVV</label>
+          <input type="number" class="form-control" id="CVV" placeholder="XXX">
+        </div>
+        <button class="btn btn-primary">Pagar</button>
       </section>
       <br><br>
-      <button>Continuar Comprando</button>
+      <button class="btn btn-secondary">Continuar Comprando</button>
     </section>
   </div>
 </div>

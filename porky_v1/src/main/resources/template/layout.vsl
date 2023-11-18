@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Porky Cakes</title>
     <link rel="icon" href=porkyLogo.png type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
     <!-- Our stylesheet -->
-    <!--<link rel="stylesheet" type="text/css" href="/css/auth.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/auth.css">
     <style>
         .card {
             background-color: #FFDADA;
@@ -23,6 +24,8 @@
 
         #contenedorCartas {
             text-align: center;
+            align-items: center;
+            justify-content: center;
         }
 
         .list-group-item {
@@ -32,11 +35,14 @@
         .list-group list-group-flush {
             border: 1px solid black;
         }
+        body{
+            overflow-x: hidden;
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: rgb(247,201,239);">
+    <nav class="navbar navbar-expand-lg" style="background-color: #f1d3d3;">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home">
                 <img src="img/logoPorkyInsta.png" alt="Logo" width="30" height="30"
@@ -56,33 +62,40 @@
                         </form>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" action="/producto" method="get">
+                <form class="d-flex" role="search" action="/producto" method="get" style="padding-left: 5px; padding-right: 5px;">
                     <input class="form-control me-2" type="search" name="nombre" placeholder="Buscar producto"
                         aria-label="Search" style="background-color: rgb(232,181,181);">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
                 </form>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Cuenta
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li style="display: flex; justify-content: center;">
-                                <form action="/login" method="get">
-                                    <button type="submit">Iniciar Sesion</button>
-                                </form>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li style="display: flex; justify-content: center;">
-                                <form action="/singup" method="get">
-                                    <button type="submit">Registrarse</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                <ul class="navbar-nav mb-2 mb-lg-0" style="padding-left: 5px; padding-right: 5px;">
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#miVentanaModal">
+                        Cuenta
+                    </button>
+                    <div class="modal fade" id="miVentanaModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Cuenta</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body mx-auto">
+                                    <form action="/login" method="get">
+                                        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                                    </form>
+                                    <br>
+                                    <form action="/singup" method="get">
+                                        <button type="submit" class="btn btn-primary">Crea tu Cuenta</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -90,39 +103,37 @@
     <div>
         #parse($template)
     </div>
-    <footer class="footer bottom" style="height: 5px; width: 100%;">
-        <div class="container" style="width: 100%; text-align: center; background-color: rgba(0,0,0,0.71);">
-            <div class="row" style="color: white;">
-                <div class="col-4" style="border: 1px solid black;">
-                    <p style="font-weight: bold;">Contactanos</p>
-                    <div class="row">
-                        <div class="col"><img src="img/phone-call.png" alt=""></div>
-                        <div class="col">+54 9 2302-XXXXXX</div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><img src="img/location.png" alt=""></div>
-                        <div class="col">Calle XX entre XX y XX</div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><img src="img/email.png" alt=""></div>
-                        <div class="col">XXXXXXXXXX@XXXXXX.com</div>
-                    </div>
+    <footer style="background-color: rgb(247,201,239); text-align: center;"; id="miFooter">
+        <div class="row" style="color: black;">
+            <div class="col-4">
+                <p style="font-weight: bold;">Contactanos</p>
+                <div class="row">
+                    <div class="col"><img src="img/phone-call.png" alt=""></div>
+                    <div class="col">+54 9 2302-XXXXXX</div>
                 </div>
-                <div class="col-4" style="border: 1px solid black;">
-                    <p style="font-weight: bold;">Formas de Pago</p>
-                    <div class="row">
-                        <div class="col-4"><img src="img/Mastercard-Logo-2016.png" alt=""></div>
-                        <div class="col-4"><img src="img/mercado-pago.png" alt=""></div>
-                        <div class="col-4"><img src="img/visa-logo.png" alt=""></div>
-                    </div>
+                <div class="row">
+                    <div class="col"><img src="img/location.png" alt=""></div>
+                    <div class="col">Calle XX entre XX y XX</div>
                 </div>
-                <div class="col-4" style="border: 1px solid black;">
-                    <div class="custom-footer-div">
-                        <p style="font-weight: bold;">Buscanos en las Redes</p>
-                        <div class="row">
-                            <div class="col"><img src="img/instagramLogo.png" alt=""></div>
-                            <div class="col"><img src="img/facebookLogo.png" alt=""></div>
-                        </div>
+                <div class="row">
+                    <div class="col"><img src="img/email.png" alt=""></div>
+                    <div class="col">XXXXXXXXXX@XXXXXX.com</div>
+                </div>
+            </div>
+            <div class="col-4">
+                <p style="font-weight: bold;">Formas de Pago</p>
+                <div class="row">
+                    <div class="col-4"><img src="img/Mastercard-Logo-2016.png" alt=""></div>
+                    <div class="col-4"><img src="img/mercado-pago.png" alt=""></div>
+                    <div class="col-4"><img src="img/visa-logo.png" alt=""></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="custom-footer-div">
+                    <p style="font-weight: bold;">Buscanos en las Redes</p>
+                    <div class="row">
+                        <div class="col"><img src="img/instagramLogo.png" alt=""></div>
+                        <div class="col"><img src="img/facebookLogo.png" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -137,10 +148,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 
     <!-- Our script must be loaded after firebase references -->
-    <script src="/js/auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/footer.js"></script>
 </body>
 
 </html>
