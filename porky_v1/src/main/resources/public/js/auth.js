@@ -1,11 +1,11 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyA9oQiRvbmh2VQHbNsYI_X_jpOx-r0FboU",
-    authDomain: "porky-cakes.firebaseapp.com",
-    projectId: "porky-cakes",
-    storageBucket: "porky-cakes.appspot.com",
-    messagingSenderId: "703799900814",
-    appId: "1:703799900814:web:2a6cba65fae6a2936e27df",
-    measurementId: "G-XYHH2TZ2Z9"
+  apiKey: "AIzaSyA9oQiRvbmh2VQHbNsYI_X_jpOx-r0FboU",
+  authDomain: "porky-cakes.firebaseapp.com",
+  projectId: "porky-cakes",
+  storageBucket: "porky-cakes.appspot.com",
+  messagingSenderId: "703799900814",
+  appId: "1:703799900814:web:2a6cba65fae6a2936e27df",
+  measurementId: "G-XYHH2TZ2Z9"
 };
 
 // Initialize Firebase
@@ -15,7 +15,7 @@ const auth = firebase.auth()
 const database = firebase.database()
 
 // Set up our register function
-function register () {
+function register() {
   // Get all our input fields
   email = document.getElementById('email').value
   password = document.getElementById('password').value
@@ -31,59 +31,58 @@ function register () {
     alert('One or More Extra Fields is Outta Line!!')
     return
   }
- 
+
   // Move on with Auth
   auth.createUserWithEmailAndPassword(email, password)
-  .then(function() {
-    // Declare user variable
-    var user = auth.currentUser
-    //window.location.href = 'http://localhost:4567/home?';
-    document.getElementById('uid').value = user.uid;
-    console.log(user.uid);
-    // Done
-    alert('User Created!!')
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
-    alert(error_message)
-  })
+    .then(function () {
+      // Declare user variable
+      var user = auth.currentUser
+      window.location.href = 'http://localhost:4567/home?uid=' + user.uid;
+    })
+    .catch(function (error) {
+      // Firebase will use this to alert of its errors
+      var error_code = error.code
+      var error_message = error.message
+      alert(error_message)
+    })
 }
 
 // Set up our login function
-function login () {
+function login() {
   // Get all our input fields
   email = document.getElementById('email').value
   password = document.getElementById('password').value
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!')
+    const msj = 'Email or Password are Outta Line!!';
+    var miDiv = document.getElementById('errorAuth');
+    var msjError = document.createElement('p');
+    msjError.innerHTML = msj;
+    miDiv.innerHTML = msjError.outerHTML;
     return
     // Don't continue running the code
   }
-  
+
   auth.signInWithEmailAndPassword(email, password)
-  .then(function() {
-    var headres = new Headers;
-    // Declare user variable
-    var user = auth.currentUser
-    headres.append('uid', user.uid);
-    window.location.href = 'http://localhost:4567/home?uid=' + user.uid;
-    //console.log(user.uid)
-    //document.getElementById("uid").value = user.uid;
-    // Done
-    //alert('User Logged In!!')
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
-    alert(error_message)
-  })
+    .then(function () {
+      // Declare user variable
+      var user = auth.currentUser
+      window.location.href = 'http://localhost:4567/home?uid=' + user.uid;
+    })
+    .catch(function (error) {
+      // Firebase will use this to alert of its errors
+      if (error) {
+        const msj = 'Email or Password are Incorrect!!';
+        var miDiv = document.getElementById('errorAuth');
+        var msjError = document.createElement('p');
+        msjError.innerHTML = msj;
+        miDiv.innerHTML = msjError.outerHTML;
+        return
+      }
+    })
 }
 
-function logOut(){
+function logOut() {
   var uid = headres.get('uid')
   auth.singOut(uid)
 }

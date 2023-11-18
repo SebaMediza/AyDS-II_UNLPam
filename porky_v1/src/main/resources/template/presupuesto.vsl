@@ -1,0 +1,17 @@
+<div>
+    <div style="text-align: center;">
+        <h1>Servicio en Mantenimiento</h1>
+        <h2>Estamos trabajando para mejorar nuestros servicio, para brindarles una mejor calidad de atencion.</h2>
+        <h3>Disculpe las molestias.</h3>
+    </div>
+    <div class="mx-auto text-center">
+        <img src="img/imagenCentral.jpg" alt="" style="height: 500px; width: 500px;">
+    </div>
+    <br>
+    <div class="mx-auto text-center">
+        <form action="/home" method="get">
+            <button type="submit" class="btn btn-primary">Menu Principal</button>
+        </form>
+    </div>
+    <br>
+</div>

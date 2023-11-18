@@ -16,7 +16,7 @@
             </div>
         </div>
         <br>
-        <div id="contenedorCartas" style="justify-content: center;">
+        <div id="contenedorCartas">
             <div class="row">
                 <div class="col">
                     <div class="card mb-3" style="max-width: 540px;">
@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">🍓 CHEESECAKE DUO 🍓</h5>
+                                    <h5 class="card-title">🍓 CHEESECAKE DUÓ 🍓</h5>
                                     <p class="card-text">Para los que no pueden elegir o simplemente prefieren variedad de sabores. En este caso de pistacho y frutos rojos.</p>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">💚 CHEESECAKE DE PISTACHO 💚</h5>
-                                    <p class="card-text">Base crocante de galletas y pistacho, relleno de queso y pistacho cubierta por una ganache de chocolate blanco y pistacho imperdible.</p>
+                                    <p class="card-text">Base crocante de galletas y pistacho, relleno de queso y pistacho cubierta por una ganache de chocolate blanco y pistacho ¡¡imperdible!!.</p>
                                 </div>
                             </div>
                         </div>

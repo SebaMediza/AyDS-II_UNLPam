@@ -1,35 +1,39 @@
-## Velocity Template    
-    <br>
-    <div class="container">
+## Velocity Template
+<br>
+<div>
+    <div class="container" style="margin-bottom: 150px;">
         <div class="row row-cols-4">
             #foreach($item in $RES)
-                <div class="col">
-                    <div style="text-align: center">  
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="$item.getImg_producto0()" class="card-img-top" alt="...">
-                                <h5 class="card-title">$item.getNombre()</h5>
-                                <p class="card-text">$item.getDescripcion_producto()</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
-                                <li class="list-group-item">Rinde:  $item.getCant_porciones() porciones</li>
-                            </ul>
-                            <div class="card-body">
-                                <form action="/masinfo" method="get">
-                                    <input type="text" id="id" name="id" value="$item.getId()" style="visibility: hidden;">
-                                    <input type="submit" value="Ver Mas" class="btn btn-primary">
-                                </form>
-                                <br>
-                                <form action="/carrito" method="get">
-                                    <button class="btn btn-primary">Agregar al Carrito</button>
-                                    <input type="text" id="item" name="item" value="$item.getId()" style="visibility: hidden;">
-                                </form>
-                            </div>
+            <div class="col">
+                <div style="text-align: center">
+                    <div class="card" style="width: 18rem; height: auto;">
+                        <div class="card-body">
+                            <img src="$item.getImg_producto0()" class="card-img-top" alt="...">
+                            <h5 class="card-title">$item.getNombre()</h5>
+                            <p class="card-text">$item.getDescripcion_producto()</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Precio: $item.getPrecio_vta()</li>
+                            <li class="list-group-item">Rinde: $item.getCant_porciones() porciones</li>
+                        </ul>
+                        <div class="card-body">
+                            <form action="/masinfo" method="get">
+                                <input type="text" id="id" name="id" value="$item.getId()" style="visibility: hidden;">
+                                <input type="submit" value="Ver Mas" class="btn btn-primary">
+                            </form>
+                            <br>
+                            <form action="/carrito" method="get">
+                                <button class="btn btn-primary">Agregar al Carrito</button>
+                                <input type="text" id="item" name="item" value="$item.getId()"
+                                    style="visibility: hidden;">
+                            </form>
                         </div>
                     </div>
                 </div>
+                <br>
+            </div>
             #end
         </div>
     </div>
-    <br>
+</div>
+<br>
