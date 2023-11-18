@@ -26,6 +26,7 @@ public class Main {
         get("/masinfo", ProductoControlador.masInformacion);
         get("/carrito", CarritoController.carrito);
         get("/micarrito", CarritoController.miCarrito);
+        get("/presupuesto", PresupuestoController.presupuesto);
         //Lado del administrador
         get("/admin", ControladorAdmin.admin);
         get("/admin/productos", ControladorAdmin.adminProductos);
