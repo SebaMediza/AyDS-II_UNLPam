@@ -1,34 +1,47 @@
 package com.aydsii.porky;
 
-import java.util.HashMap;
-import java.util.Vector;
-
-import io.grpc.InternalGlobalInterceptors;
+import com.google.gson.Gson;
+import lombok.RequiredArgsConstructor;
 import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
 import spark.Route;
+import spark.Spark;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import java.util.HashMap;
+import java.util.Map;
+
+@RequiredArgsConstructor
 public class PresupuestoController {
-    private static Vector<Integer> productosCargados = new Vector<Integer>();
 
-    public static Route presupuesto = (Request request, Response response) -> {
-        String layout = "template/layout.vsl";
-        HashMap model = new HashMap();
-        Vector<Producto> RES = new Vector<>();
-        HashMap<Integer, String> options = new HashMap<>();
-        HashMap<Integer, Producto> hashMapProductos = ProductoDAO.listarProductos(FireBaseController.getFirestoreConnection());
-        
-        hashMapProductos.forEach((id, producto) -> {
-            if (!productosCargados.contains(id))
-                options.put(Integer.parseInt(producto.getId()), producto.getNombre());
-        });
+    private static Gson gson = new Gson();
+    private static PresupuestoService presupuestoService;
 
-        model.put("RES", RES);
-        model.put("options", options);
-        model.put("template", "template/presupuesto.vsl");
-        
-        return new VelocityTemplateEngine().render(new ModelAndView(model, layout));
+    public static Route renderPresupuestoForm = (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/presupuesto.vsl"));
+    };
+
+    public static Route handlePresupuestoRequest = (request, response) -> {
+        try {
+            // Parse JSON from the form
+            Presupuesto presupuesto = gson.fromJson(request.body(), Presupuesto.class);
+    
+            // Save to the service
+            presupuestoService.savePresupuesto(presupuesto);
+    
+            // Set success message
+            request.session().attribute("alertMessage", "Presupuesto enviado");
+            request.session().attribute("alertType", "success");
+        } catch (Exception e) {
+            e.printStackTrace(); // Log or handle the exception as needed
+    
+            // Set error message
+            request.session().attribute("alertMessage", "Error enviando Presupuesto");
+            request.session().attribute("alertType", "error");
+        }
+    
+        // Redirect to "/home" after handling the request
+        response.redirect("/home");
+        return "";
     };
 }

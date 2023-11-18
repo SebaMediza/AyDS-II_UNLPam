@@ -262,11 +262,7 @@ ALTER TABLE `materia_prima`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-<<<<<<< HEAD
   MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-=======
-  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
->>>>>>> fff6f8a6eda2e07ed9041bf8871efba5cd19b2c8
 
 --
 -- Restricciones para tablas volcadas

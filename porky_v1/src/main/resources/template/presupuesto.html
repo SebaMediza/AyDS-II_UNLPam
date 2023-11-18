@@ -71,12 +71,12 @@
     </style>
     <script>
         var availableOptions = [
-            #foreach($productId in $productData.keySet())
-                #set($product = $productData.get($productId))
-                { id: $productId, name: "$product.getNombre()", category: "$product.getNombre().substring(0, 1).toUpperCase()", ordered: false },
-            #end
+            { id: 1, name: "Product A1", category: "A", ordered: false },
+            { id: 2, name: "Product A2", category: "A", ordered: false },
+            { id: 3, name: "Product B1", category: "B", ordered: true },
+            { id: 4, name: "Product C1", category: "C", ordered: false }
+            // ... other products
         ];
-
 
         function addProduct() {
             // Get selected product details
@@ -99,8 +99,8 @@
             var deleteCell = newRow.insertCell(2);
 
             // Set the content of the cells
-            productNameCell.innerHTML = '<input type="text" value="' + productName + '" name="products[' + productId + ']" readonly />';
-            quantityCell.innerHTML = '<input type="number" value="' + quantity + '" name="products[' + productId + ']" min="1" max="50" />';
+            productNameCell.innerHTML = productName;
+            quantityCell.innerHTML = '<input type="number" value="' + quantity + '" name="products[' + productId + ']" oninput="validateTableQuantity(this)" min="1" max="50" />';
             deleteCell.innerHTML = '<button type="button" onclick="deleteProduct(this)"><i class="fas fa-trash-alt"></i></button>';
 
             // Remove the selected option from the dropdown
@@ -112,6 +112,7 @@
                 tableHead.style.display = "table-header-group";
             }
         }
+
 
         function deleteProduct(button) {
             // Delete the corresponding row
@@ -180,7 +181,7 @@
     <div class="container">
         <h1 class="mt-4">Formulario de Solicitud de Presupuesto</h1>
 
-        <form action="/enviarPresupuesto" method="post" class="form-container">
+        <form action="/presupuesto" method="post" class="form-container">
             <!-- Product Dropdown, Quantity Input, and Add Product Button Container -->
             <div class="row mb-3">
                 <div class="col-md-4">

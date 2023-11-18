@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 import spark.Session;
+import spark.Spark;
 
 import com.google.firebase.auth.FirebaseAuthException;
 
@@ -20,14 +21,15 @@ public class Main {
         get("/login", ControladorCliente.logIn);
         get("/singup", ControladorCliente.singUp);
         get("/logout", ControladorCliente.logOut);
-        get("/presupuesto", ControladorCliente.presupuesto);
+        //Presupuesto
+        get("/pedirPresupuesto", PresupuestoController.renderPresupuestoForm);
+        post("/enviarPresupuesto", "application/json", PresupuestoController.handlePresupuestoRequest);
         //Productos
         get("/productos", ProductoControlador.listarProductos);
         get("/producto", ProductoControlador.buscarNombre);
         get("/masinfo", ProductoControlador.masInformacion);
         get("/carrito", CarritoController.carrito);
         get("/micarrito", CarritoController.miCarrito);
-        get("/presupuesto", PresupuestoController.presupuesto);
         //Lado del administrador
         get("/admin", ControladorAdmin.admin);
         get("/admin/productos", ControladorAdmin.adminProductos);

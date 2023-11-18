@@ -18,6 +18,18 @@ public class ControladorCliente {
     @SuppressWarnings("rawtypes")
     public static Route indice = (Request request, Response response) -> {
         HashMap model = new HashMap();
+        String alertMessage = request.session().attribute("alertMessage");
+        String alertType = request.session().attribute("alertType");
+
+        if (alertMessage != null && alertType != null) {
+            model.put("alertMessage", alertMessage);
+            model.put("alertType", alertType);
+            // Clear session attributes to prevent displaying the same alert on subsequent
+            // requests
+            request.session().removeAttribute("alertMessage");
+            request.session().removeAttribute("alertType");
+        }
+
         String layout = "";
         String uid = "";
         if (Main.userSession == null) {
@@ -44,10 +56,10 @@ public class ControladorCliente {
                 default:
                     layout = "template/layout.vsl";
             }
-        }else{
+        } else {
             if (Main.userSession != null && Main.userSession.attribute("uid").toString().matches(adminUid)) {
                 layout = "template/layoutAdmin.vsl";
-            }else{
+            } else {
                 layout = "template/layoutUser.vsl";
             }
         }
