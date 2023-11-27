@@ -14,8 +14,7 @@ public class CarritoController {
     private static Vector<String> carritoList = new Vector<>();
     
     public static Route carrito = (Request request, Response response) -> {
-        String item = request.queryParams("item");
-        carritoList.add(item);
+        carritoList.add(request.queryParams("item"));
         response.redirect("/productos");
         return null;
     };
