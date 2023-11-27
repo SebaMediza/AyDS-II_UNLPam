@@ -14,7 +14,7 @@ public class FireBaseController {
     private static Firestore dbFirestore;
     
     private FireBaseController() throws IOException{
-        FileInputStream serviceAccount = new FileInputStream("porky_v1\\src\\main\\resources\\DB\\porky-cakes-firebase-adminsdk-s8box-c20de526e1.json");
+        FileInputStream serviceAccount = new FileInputStream("porky_v1/src/main/resources/DB/porky-cakes-firebase-adminsdk-s8box-c20de526e1.json");
         FirebaseOptions firebaseOptions = new FirebaseOptions.Builder().setCredentials(GoogleCredentials.fromStream(serviceAccount)).build();
         FirebaseApp.initializeApp(firebaseOptions);
         dbFirestore = FirestoreClient.getFirestore();

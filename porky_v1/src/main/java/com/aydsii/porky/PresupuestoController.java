@@ -20,11 +20,7 @@ public class PresupuestoController {
         Map<String, Object> model = new HashMap<>();
         Map<Integer, Producto> productData = ProductoDAO.listarProductos(FireBaseController.getFirestoreConnection());
 
-        // Convert productData to JSON
-        Gson gson = new Gson();
-        String productDataJson = gson.toJson(productData);
-
-        model.put("productDataJson", productDataJson);
+        model.put("RES", productData);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/presupuesto.vsl"));
     };
 

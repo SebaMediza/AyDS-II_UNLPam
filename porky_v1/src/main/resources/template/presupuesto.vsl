@@ -70,13 +70,9 @@
         }
     </style>
     <script>
-        var productDataJson = "$!productDataJson"; // Assuming productDataJson is the JSON string
-        var productData = JSON.parse(productDataJson);
-
         var availableOptions = [
-            #foreach($productId in $productData.keySet())
-                #set($product = $productData.get($productId))
-                { id: $productId, name: "$!product.getNombre()", category: "$!product.getNombre().substring(0, 1).toUpperCase()", ordered: false },
+            #foreach($item in $RES)
+                { id: $item.getId(), name: $item.getNombre(), category: $item.getNombre().substring(0, 1).toUpperCase(), ordered: false },
             #end
         ];
 
