@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import spark.ModelAndView;
 import spark.Route;
-import spark.Spark;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.HashMap;

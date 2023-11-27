@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 import spark.Session;
-import spark.Spark;
 
 import com.google.firebase.auth.FirebaseAuthException;
 
