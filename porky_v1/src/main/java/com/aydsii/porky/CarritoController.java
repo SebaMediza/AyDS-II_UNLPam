@@ -32,10 +32,7 @@ public class CarritoController {
         model.put("RES", RES);
         model.put("TOTAL", totalCarrito);
         model.put("template", "template/carrito.vsl");
-        layout = "template/layout.vsl";
-        if (Main.userSession != null) {
-            layout = "template/layoutUser.vsl";
-        }
+        layout = Main.userSession == null ?  "template/layout.vsl" :  "template/layoutUser.vsl";
         return new VelocityTemplateEngine().render(new ModelAndView(model, layout));
     };
 }

@@ -13,11 +13,11 @@ import java.util.Map;
 public class PresupuestoController {
 
     private static Gson gson = new Gson();
-    private static PresupuestoService presupuestoService;
 
     public static Route renderPresupuestoForm = (request, response) -> {
-        Map<String, Object> model = new HashMap<>();
-        Map<Integer, Producto> productData = ProductoDAO.listarProductos(FireBaseController.getFirestoreConnection());
+        HashMap model = new HashMap<>();
+        HashMap<Integer, Producto> productData = new HashMap<>();
+        productData = ProductoDAO.listarProductos(FireBaseController.getFirestoreConnection());
 
         model.put("RES", productData);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/presupuesto.vsl"));
@@ -25,25 +25,20 @@ public class PresupuestoController {
 
     public static Route handlePresupuestoRequest = (request, response) -> {
         try {
-            // Parse JSON from the form
             Presupuesto presupuesto = gson.fromJson(request.body(), Presupuesto.class);
     
-            // Save to the service
-            presupuestoService.savePresupuesto(presupuesto);
+            PresupuestoDAO.savePresupuesto(FireBaseController.getFirestoreConnection(), presupuesto);
     
-            // Set success message
             request.session().attribute("alertMessage", "Presupuesto enviado");
-            request.session().attribute("alertType", "success");
+            request.session().attribute("alertType", "cargado");
         } catch (Exception e) {
-            e.printStackTrace(); // Log or handle the exception as needed
+            e.printStackTrace();
     
-            // Set error message
             request.session().attribute("alertMessage", "Error enviando Presupuesto");
             request.session().attribute("alertType", "error");
         }
     
-        // Redirect to "/home" after handling the request
         response.redirect("/home");
-        return "";
+        return null;
     };
 }
