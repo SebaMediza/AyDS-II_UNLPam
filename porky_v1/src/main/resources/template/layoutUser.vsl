@@ -58,7 +58,7 @@
                         </form>
                     </li>
                     <li class="nav-item">
-                        <form action="/#" method="get">
+                        <form action="/pedirPresupuesto" method="get">
                             <button onclick="SubmitEvent" class="btn btn-outline-primary">Perdir Presupuesto</button>
                         </form>
                     </li>

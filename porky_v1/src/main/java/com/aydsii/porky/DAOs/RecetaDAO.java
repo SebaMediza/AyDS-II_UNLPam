@@ -1,9 +1,11 @@
-package com.aydsii.porky;
+package com.aydsii.porky.DAOs;
 
 import java.util.List;
 
 import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
+
+import com.aydsii.porky.model.Receta;
 
 public class RecetaDAO {
     public static List<Receta> receta(int ID_PRODUCTO){

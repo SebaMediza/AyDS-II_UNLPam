@@ -1,4 +1,4 @@
-package com.aydsii.porky;
+package com.aydsii.porky.model;
 
 import lombok.Data;
 
