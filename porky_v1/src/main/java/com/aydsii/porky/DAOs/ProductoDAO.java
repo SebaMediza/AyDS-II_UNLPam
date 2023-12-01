@@ -66,7 +66,7 @@ public class ProductoDAO {
         return productoHashMap;
     }
 
-    public static Vector<Producto> buscarProductoId(Firestore firestore, Vector<String> nombre)
+    public Vector<Producto> buscarProductoId(Firestore firestore, Vector<String> nombre)
             throws InterruptedException, ExecutionException {
         Vector<Producto> productoHashMap = new Vector<>();
         for (String name : nombre) {

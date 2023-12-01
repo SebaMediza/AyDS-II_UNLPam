@@ -4,6 +4,8 @@ import static spark.Spark.*;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
+import org.checkerframework.checker.units.qual.C;
+
 import spark.Session;
 
 import com.aydsii.porky.AbtractFactory.DAOFactory;
@@ -27,6 +29,7 @@ public class Main {
         FireBaseDAO fireBaseDAO = daoFactory.getFireBaseDAO();
         PresupuestoDAO presupuestoDAO = daoFactory.getPresupuestoDAO();
 
+        ControladorCliente controladorCliente = new ControladorCliente();
         ProductoControlador productoControlador = new ProductoControlador(productoDAO, fireBaseDAO);
         CarritoController carritoController = new CarritoController(productoDAO, fireBaseDAO);
         ControladorAdmin controladorAdmin = new ControladorAdmin(productoDAO, fireBaseDAO);
@@ -34,11 +37,11 @@ public class Main {
         
         staticFiles.location("/public");
         //Lado del Cliente
-        get("/home", ControladorCliente.indice);
-        get("/login", ControladorCliente.logIn);
-        get("/login", ControladorCliente.logIn);
-        get("/singup", ControladorCliente.singUp);
-        get("/logout", ControladorCliente.logOut);
+        get("/home", controladorCliente.indice);
+        get("/login", controladorCliente.logIn);
+        get("/login", controladorCliente.logIn);
+        get("/singup", controladorCliente.singUp);
+        get("/logout", controladorCliente.logOut);
         //Presupuesto
         get("/pedirPresupuesto", presupuestoController.renderPresupuestoForm);
         post("/enviarPresupuesto", "application/json", presupuestoController.handlePresupuestoRequest);

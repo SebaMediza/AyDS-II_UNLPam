@@ -38,7 +38,7 @@ public class CarritoController {
         HashMap model = new HashMap();
         Vector<Producto> RES = new Vector<>();
         int totalCarrito = 0;
-        RES = ProductoDAO.buscarProductoId(fireBaseDAO.connectToDB(), carritoList);
+        RES = productoDAO.buscarProductoId(fireBaseDAO.connectToDB(), carritoList);
         for (Producto producto : RES) {
             totalCarrito += Integer.valueOf(producto.getPrecio_vta());
         }
