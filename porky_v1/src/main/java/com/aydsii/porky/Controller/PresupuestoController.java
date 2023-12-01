@@ -32,7 +32,7 @@ public class PresupuestoController {
         HashMap model = new HashMap<>();
         HashMap<Integer, Producto> productData = new HashMap<>();
         productData = productoDAO.listarProductos(fireBaseDAO.connectToDB());
-
+        //System.out.println(productData);
         model.put("RES", productData);
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/presupuesto.vsl"));
     };

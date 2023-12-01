@@ -4,8 +4,6 @@ import static spark.Spark.*;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-import org.checkerframework.checker.units.qual.C;
-
 import spark.Session;
 
 import com.aydsii.porky.AbtractFactory.DAOFactory;
@@ -43,7 +41,7 @@ public class Main {
         get("/singup", controladorCliente.singUp);
         get("/logout", controladorCliente.logOut);
         //Presupuesto
-        get("/pedirPresupuesto", presupuestoController.renderPresupuestoForm);
+        get("/presupuesto", presupuestoController.renderPresupuestoForm);
         post("/enviarPresupuesto", "application/json", presupuestoController.handlePresupuestoRequest);
         //Productos
         get("/productos", productoControlador.listarProductos);
