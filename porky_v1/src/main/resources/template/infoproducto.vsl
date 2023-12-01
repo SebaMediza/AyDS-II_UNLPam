@@ -18,7 +18,7 @@
             <hr>
             <div style="display: flex; flex-direction: row; justify-content: space-around;">
                 <div>
-                    <form action="/presupuesto" method="get">
+                    <form action="/presupedirPresupuestopuesto" method="get">
                         <input type="text" name="item" id="name" value=$item.getId() style="visibility: hidden;">
                         <br>
                         <button class="btn btn-primary btn-lg">Comprar</button>
