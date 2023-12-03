@@ -2,8 +2,8 @@ package com.aydsii.porky.Controller;
 
 import java.util.HashMap;
 
-import com.aydsii.porky.DAOs.FireBaseDAO;
-import com.aydsii.porky.DAOs.ProductoDAO;
+import com.aydsii.porky.DAO.FireBaseDAO;
+import com.aydsii.porky.DAO.ProductoDAO;
 import com.aydsii.porky.model.Producto;
 
 import spark.ModelAndView;
@@ -13,11 +13,11 @@ import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
 @SuppressWarnings("unchecked")
-public class ControladorAdmin {
+public class AdminController {
     private ProductoDAO productoDAO;
     private FireBaseDAO fireBaseDAO;
 
-    public ControladorAdmin(ProductoDAO productoDAO, FireBaseDAO fireBaseDAO) {
+    public AdminController(ProductoDAO productoDAO, FireBaseDAO fireBaseDAO) {
         this.productoDAO = productoDAO;
         this.fireBaseDAO = fireBaseDAO;
     }

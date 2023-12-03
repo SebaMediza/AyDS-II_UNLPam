@@ -13,9 +13,9 @@ import spark.template.velocity.VelocityTemplateEngine;
 
 @SuppressWarnings("unchecked")
 @Slf4j
-public class ControladorCliente {
+public class ClienteController {
 
-    public ControladorCliente() {}
+    public ClienteController() {}
 
     final static String adminUid = "Am0dLzqsvDVhyhhwLXbob4m484y2";
 

@@ -1,4 +1,4 @@
-package com.aydsii.porky.DAOs;
+package com.aydsii.porky.DAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;

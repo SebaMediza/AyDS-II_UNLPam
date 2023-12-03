@@ -1,7 +1,7 @@
 package com.aydsii.porky.AbtractFactory;
-import com.aydsii.porky.DAOs.FireBaseDAO;
-import com.aydsii.porky.DAOs.PresupuestoDAO;
-import com.aydsii.porky.DAOs.ProductoDAO;
+import com.aydsii.porky.DAO.FireBaseDAO;
+import com.aydsii.porky.DAO.PresupuestoDAO;
+import com.aydsii.porky.DAO.ProductoDAO;
 
 public interface DAOAbstractFactory {
     public ProductoDAO getProductoDAO();

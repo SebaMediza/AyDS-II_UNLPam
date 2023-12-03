@@ -3,8 +3,8 @@ package com.aydsii.porky.Controller;
 import java.util.HashMap;
 
 import com.aydsii.porky.Main;
-import com.aydsii.porky.DAOs.FireBaseDAO;
-import com.aydsii.porky.DAOs.ProductoDAO;
+import com.aydsii.porky.DAO.FireBaseDAO;
+import com.aydsii.porky.DAO.ProductoDAO;
 import com.aydsii.porky.model.Producto;
 
 import spark.ModelAndView;
@@ -14,16 +14,14 @@ import spark.Route;
 import spark.template.velocity.VelocityTemplateEngine;
 
 @SuppressWarnings("unchecked")
-public class ProductoControlador {
+public class ProductoController {
     private ProductoDAO productoDAO;
     private FireBaseDAO fireBaseDAO;
 
-    public ProductoControlador(ProductoDAO productoDAO, FireBaseDAO fireBaseDAO) {
+    public ProductoController(ProductoDAO productoDAO, FireBaseDAO fireBaseDAO) {
         this.productoDAO = productoDAO;
         this.fireBaseDAO = fireBaseDAO;
     }
-
-    // Rest of the class code...
 
     @SuppressWarnings("rawtypes")
     public Route listarProductos = (Request request, Response response) -> {
@@ -33,7 +31,7 @@ public class ProductoControlador {
         model.put("RES", RES);
         model.put("template","template/carta.vsl");
         layout = "template/layout.vsl";
-        if (Main.userSession != null && !Main.userSession.attribute("uid").toString().matches(ControladorCliente.adminUid)) {
+        if (Main.userSession != null && !Main.userSession.attribute("uid").toString().matches(ClienteController.adminUid)) {
             layout = "template/layoutUser.vsl";
         }else{
             layout = "template/layoutAdmin.vsl";
@@ -50,7 +48,7 @@ public class ProductoControlador {
         model.put("RES", RES);
         model.put("template","template/infoproducto.vsl");
         layout = "template/layout.vsl";
-        if (Main.userSession != null && !Main.userSession.attribute("uid").toString().matches(ControladorCliente.adminUid)) {
+        if (Main.userSession != null && !Main.userSession.attribute("uid").toString().matches(ClienteController.adminUid)) {
             layout = "template/layoutUser.vsl";
         }else{
             layout = "template/layoutAdmin.vsl";
@@ -67,7 +65,7 @@ public class ProductoControlador {
         model.put("RES", RES);
         model.put("template","template/carta.vsl");
         layout = "template/layout.vsl";
-        if (Main.userSession != null && !Main.userSession.attribute("uid").toString().matches(ControladorCliente.adminUid)) {
+        if (Main.userSession != null && !Main.userSession.attribute("uid").toString().matches(ClienteController.adminUid)) {
             layout = "template/layoutUser.vsl";
         }else{
             layout = "template/layoutAdmin.vsl";

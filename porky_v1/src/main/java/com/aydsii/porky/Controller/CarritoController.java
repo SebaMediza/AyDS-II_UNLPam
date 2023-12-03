@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import com.aydsii.porky.Main;
-import com.aydsii.porky.DAOs.FireBaseDAO;
-import com.aydsii.porky.DAOs.ProductoDAO;
+import com.aydsii.porky.DAO.FireBaseDAO;
+import com.aydsii.porky.DAO.ProductoDAO;
 import com.aydsii.porky.model.Producto;
 
 import spark.ModelAndView;

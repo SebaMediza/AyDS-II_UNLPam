@@ -8,13 +8,13 @@ import spark.Session;
 
 import com.aydsii.porky.AbtractFactory.DAOFactory;
 import com.aydsii.porky.Controller.CarritoController;
-import com.aydsii.porky.Controller.ControladorAdmin;
-import com.aydsii.porky.Controller.ControladorCliente;
+import com.aydsii.porky.Controller.AdminController;
+import com.aydsii.porky.Controller.ClienteController;
 import com.aydsii.porky.Controller.PresupuestoController;
-import com.aydsii.porky.Controller.ProductoControlador;
-import com.aydsii.porky.DAOs.FireBaseDAO;
-import com.aydsii.porky.DAOs.PresupuestoDAO;
-import com.aydsii.porky.DAOs.ProductoDAO;
+import com.aydsii.porky.Controller.ProductoController;
+import com.aydsii.porky.DAO.FireBaseDAO;
+import com.aydsii.porky.DAO.PresupuestoDAO;
+import com.aydsii.porky.DAO.ProductoDAO;
 import com.google.firebase.auth.FirebaseAuthException;
 
 
@@ -27,10 +27,10 @@ public class Main {
         FireBaseDAO fireBaseDAO = daoFactory.getFireBaseDAO();
         PresupuestoDAO presupuestoDAO = daoFactory.getPresupuestoDAO();
 
-        ControladorCliente controladorCliente = new ControladorCliente();
-        ProductoControlador productoControlador = new ProductoControlador(productoDAO, fireBaseDAO);
+        ClienteController controladorCliente = new ClienteController();
+        ProductoController productoControlador = new ProductoController(productoDAO, fireBaseDAO);
         CarritoController carritoController = new CarritoController(productoDAO, fireBaseDAO);
-        ControladorAdmin controladorAdmin = new ControladorAdmin(productoDAO, fireBaseDAO);
+        AdminController controladorAdmin = new AdminController(productoDAO, fireBaseDAO);
         PresupuestoController presupuestoController = new PresupuestoController(productoDAO, presupuestoDAO, fireBaseDAO);
         
         staticFiles.location("/public");

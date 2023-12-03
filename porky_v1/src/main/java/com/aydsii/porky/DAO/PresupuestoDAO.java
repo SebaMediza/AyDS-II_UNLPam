@@ -1,4 +1,4 @@
-package com.aydsii.porky.DAOs;
+package com.aydsii.porky.DAO;
 
 import com.aydsii.porky.model.Presupuesto;
 import com.google.cloud.firestore.Firestore;
