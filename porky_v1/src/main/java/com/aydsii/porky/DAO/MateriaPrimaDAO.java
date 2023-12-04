@@ -1,8 +1,10 @@
-package com.aydsii.porky;
+package com.aydsii.porky.DAO;
 
 import java.util.List;
 import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
+
+import com.aydsii.porky.model.MateriaPrima;
 
 public class MateriaPrimaDAO {
     public static List<MateriaPrima> materiaPrimaOf(int ID_PRODUCTO){

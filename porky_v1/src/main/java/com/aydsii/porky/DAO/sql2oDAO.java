@@ -1,4 +1,4 @@
-package com.aydsii.porky;
+package com.aydsii.porky.DAO;
 
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;

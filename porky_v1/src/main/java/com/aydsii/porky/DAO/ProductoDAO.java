@@ -1,4 +1,4 @@
-package com.aydsii.porky;
+package com.aydsii.porky.DAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.ExecutionException;
 
+import com.aydsii.porky.model.Producto;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
@@ -18,7 +19,7 @@ import com.google.cloud.firestore.Query;
 
 @SuppressWarnings("null")
 public class ProductoDAO {
-    public static HashMap<Integer, Producto> listarProductos(Firestore firestore)
+    public HashMap<Integer, Producto> listarProductos(Firestore firestore)
             throws InterruptedException, ExecutionException {
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
@@ -33,7 +34,7 @@ public class ProductoDAO {
         return productoHashMap;
     }
 
-    public static HashMap<Integer, Producto> ampliarProducto(Firestore firestore, String id)
+    public HashMap<Integer, Producto> ampliarProducto(Firestore firestore, String id)
             throws InterruptedException, ExecutionException {
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
@@ -49,7 +50,7 @@ public class ProductoDAO {
         return productoHashMap;
     }
 
-    public static HashMap<Integer, Producto> buscarProductoNombre(Firestore firestore, String carritoList)
+    public HashMap<Integer, Producto> buscarProductoNombre(Firestore firestore, String carritoList)
             throws InterruptedException, ExecutionException {
         HashMap<Integer, Producto> productoHashMap = new HashMap<>();
         Integer contador = 0;
@@ -65,7 +66,7 @@ public class ProductoDAO {
         return productoHashMap;
     }
 
-    public static Vector<Producto> buscarProductoId(Firestore firestore, Vector<String> nombre)
+    public Vector<Producto> buscarProductoId(Firestore firestore, Vector<String> nombre)
             throws InterruptedException, ExecutionException {
         Vector<Producto> productoHashMap = new Vector<>();
         for (String name : nombre) {
@@ -78,7 +79,7 @@ public class ProductoDAO {
         return productoHashMap;
     }
 
-    public static void insertarProducto(Firestore firestore, String nombre, String precio_vta, String cant_porciones,
+    public void insertarProducto(Firestore firestore, String nombre, String precio_vta, String cant_porciones,
             String descripcion_producto, String img_producto0, String img_producto1, String img_producto2,
             String img_producto3) throws InterruptedException, ExecutionException {
         System.out.println("en el producto DAO");
