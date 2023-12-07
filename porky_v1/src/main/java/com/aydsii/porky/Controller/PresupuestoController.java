@@ -28,7 +28,7 @@ public class PresupuestoController {
         this.fireBaseDAO = fireBaseDAO;
     }
     @SuppressWarnings("rawtypes")
-    public Route renderPresupuestoForm = (request, response) -> {
+    public Route crearPresupuesto = (request, response) -> {
         HashMap model = new HashMap<>();
         HashMap<Integer, Producto> productData = new HashMap<>();
         productData = productoDAO.listarProductos(fireBaseDAO.connectToDB());
@@ -38,7 +38,7 @@ public class PresupuestoController {
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layoutUser.vsl"));
     };
 
-    public Route handlePresupuestoRequest = (request, response) -> {
+    public Route enviarPresupuesto = (request, response) -> {
         try {
             Presupuesto presupuesto = gson.fromJson(request.body(), Presupuesto.class);
     

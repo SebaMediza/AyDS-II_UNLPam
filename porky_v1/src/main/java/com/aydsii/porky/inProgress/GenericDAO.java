@@ -7,9 +7,9 @@ import org.checkerframework.checker.units.qual.K;
 
 public interface GenericDAO<K extends Serializable, T> 
 {
-    public T find(K id);
-    public List<T> find();
-    public K save(T value);
-    public void update(T value);
+    public K create(T value);
+    public List<T> getAll();
+    public T getById(K id);
+    public void update(K id,T value);
     public void delete(T value);
 }

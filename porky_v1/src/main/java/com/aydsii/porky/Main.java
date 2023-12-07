@@ -41,15 +41,15 @@ public class Main {
         get("/singup", controladorCliente.singUp);
         get("/logout", controladorCliente.logOut);
         //Presupuesto
-        get("/presupuesto", presupuestoController.renderPresupuestoForm);
-        post("/enviarPresupuesto", "application/json", presupuestoController.handlePresupuestoRequest);
+        get("/presupuesto", presupuestoController.crearPresupuesto);
+        post("/enviarPresupuesto", "application/json", presupuestoController.enviarPresupuesto);
         //Productos
         get("/productos", productoControlador.listarProductos);
         get("/producto", productoControlador.buscarNombre);
         get("/masinfo", productoControlador.masInformacion);
         //Carrito
-        get("/carrito", carritoController.carrito);
-        get("/micarrito", carritoController.miCarrito);
+        get("/carrito", carritoController.cargarCarrito);
+        get("/micarrito", carritoController.verCarrito);
         //Lado del administrador
         get("/admin", controladorAdmin.admin);
         get("/admin/productos", controladorAdmin.adminProductos);

@@ -26,14 +26,14 @@ public class CarritoController {
         this.fireBaseDAO = fireBaseDAO;
     }
     
-    public Route carrito = (Request request, Response response) -> {
+    public Route cargarCarrito = (Request request, Response response) -> {
         carritoList.add(request.queryParams("item"));
         response.redirect("/productos");
         return null;
     };
 
     @SuppressWarnings("rawtypes")
-    public Route miCarrito = (Request request, Response response) -> {
+    public Route verCarrito = (Request request, Response response) -> {
         String layout = "";
         HashMap model = new HashMap();
         Vector<Producto> RES = new Vector<>();
