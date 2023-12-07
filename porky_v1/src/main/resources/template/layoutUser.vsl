@@ -16,7 +16,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
     <!-- Our stylesheet -->
     <!--<link rel="stylesheet" type="text/css" href="/css/auth.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha384-c4FJzN6ZNqCkXgNG10oXVZlfbU50W47p3F5FkjZa3f3CpebuZrsjSdrhv0z68EN4" crossorigin="anonymous" />
     <style>
+        body {
+            --red-crayola: #ee2255;
+            --french-rose: #ee4477;
+            --french-rose-2: #ee5588;
+            --rose-pompadour: #ee7799;
+            --bakermiller-pink: #ff99bb;
+            --carnation-pink: #ffaacc;
+            --mimi-pink: #ffddee;
+            padding: 20px;
+            background: var(--mimi-pink);
+            /* Light flat background color */
+            color: var(--red-crayola);
+            /* Contrasting title color */
+        }
+
+        #productTableHead {
+            background-color: var(--french-rose);
+            /* Darker color for table header */
+            color: white;
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        button i {
+            color: #333 !important;
+        }
+
+        /* Rounded corners for the delete button */
+        button {
+            background-color: var(--rose-pompadour) !important;
+            border: 1px solid var(--rose-pompadour) !important;
+            border-radius: 5px;
+            /* Adjust the value for more or less rounding */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Optional: Add a subtle shadow */
+        }
+
+        /* Remove the outline */
+        button:focus {
+            outline: none !important;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Optional: Add a subtle shadow on focus */
+        }
+
+        /* Placeholder color with stronger contrast */
+        ::placeholder {
+            color: var(--rose-pompadour);
+            opacity: 1;
+            /* Full opacity */
+        }
         .card {
             background-color: #FFDADA;
         }
@@ -33,7 +87,7 @@
             border: 1px solid black;
         }
     </style>
-    <script src="/js/presupuesto.js"></script>
+    
 </head>
 
 <body>

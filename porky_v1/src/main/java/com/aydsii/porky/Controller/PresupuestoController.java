@@ -34,7 +34,8 @@ public class PresupuestoController {
         productData = productoDAO.listarProductos(fireBaseDAO.connectToDB());
         //System.out.println(productData);
         model.put("RES", productData);
-        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/presupuesto.vsl"));
+        model.put("template", "template/presupuesto.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layoutUser.vsl"));
     };
 
     public Route handlePresupuestoRequest = (request, response) -> {

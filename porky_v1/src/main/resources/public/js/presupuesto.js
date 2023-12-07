@@ -1,15 +1,10 @@
-var availableOptions = [
-    #foreach($item in $RES)
-        { id: $item.getId(), name: $item.getNombre(), category: $item.getNombre().substring(0, 1).toUpperCase(), ordered: false },
-    #end
-];
-
-
 function addProduct() {
     // Get selected product details
-    var selectedOption = document.getElementById("productSelect").options[document.getElementById("productSelect").selectedIndex];
+    var selectElement = document.getElementById("productSelect");
+    var selectedOption = selectElement.options[selectElement.selectedIndex];
     var productId = selectedOption.value;
     var productName = selectedOption.text;
+    var category = productName.substr(0,1);
 
     // Get the quantity value
     var quantityInput = document.getElementById("quantityInput");
@@ -26,76 +21,90 @@ function addProduct() {
     var deleteCell = newRow.insertCell(2);
 
     // Set the content of the cells
-    productNameCell.innerHTML = '<input type="text" value="' + productName + '" name="products[' + productId + ']" readonly />';
-    quantityCell.innerHTML = '<input type="number" value="' + quantity + '" name="products[' + productId + ']" min="1" max="50" />';
+    productNameCell.innerHTML = '<input type="text" id_prod='+productId+' value="' + productName + '" name="products['+productId+']" readonly style="border: none;outline: none;;" />';
+    quantityCell.innerHTML = '<input type="number" id_prod='+productId+' value="' + quantity + '" name="quantities['+productId+']" min="1" max="50" />';
     deleteCell.innerHTML = '<button type="button" onclick="deleteProduct(this)"><i class="fas fa-trash-alt"></i></button>';
 
     // Remove the selected option from the dropdown
-    selectedOption.remove();
+    selectElement.remove(selectElement.selectedIndex);
 
     // Show the table header if it was hidden
     var tableHead = document.getElementById("productTableHead");
     if (tableHead.style.display === "none") {
         tableHead.style.display = "table-header-group";
     }
+
+    // Regenerate the content of the select
+    sortAndRegenerateSelect();
 }
 
 function deleteProduct(button) {
     // Delete the corresponding row
     var row = button.parentNode.parentNode;
-    var productName = row.cells[0].innerHTML;
+    var productName = row.cells[0].querySelector('input').value;
+    var productId = row.cells[0].querySelector('input').getAttribute('id_prod');
+    var category = productName.substr(0,1)
 
-    // Find the product in the available options array based on the product name
-    var product = availableOptions.find(option => option.name === productName);
+    // Remove the row from the table
+    row.parentNode.removeChild(row);
 
-    if (product) {
-        // Mark the product as logically ordered
-        product.ordered = true;
+    // Add the deleted option back to the select
+    var select = document.getElementById("productSelect");
+    var optionElement = document.createElement("option");
+    optionElement.value = productId;
+    optionElement.text = productName;
+    optionElement.setAttribute('data-category', category);
+    select.appendChild(optionElement);
 
-        // Remove the row from the table
-        row.parentNode.removeChild(row);
-
-        // Hide the table header if there are no rows
-        if (document.getElementById("productTable").querySelector('tbody').rows.length === 0) {
-            document.getElementById("productTableHead").style.display = "none";
-        }
-
-        // Regenerate the content of the select
-        regenerateSelect();
-    } else {
-        console.error('Failed to find product in the available options array.');
+    // Hide the table header if there are no rows
+    if (document.getElementById("productTable").querySelector('tbody').rows.length === 0) {
+        document.getElementById("productTableHead").style.display = "none";
     }
+
+    // Sort and regenerate the content of the select
+    sortAndRegenerateSelect();
 }
 
-function regenerateSelect() {
+function sortAndRegenerateSelect() {
     // Remove all options and categories from the select
     var select = document.getElementById("productSelect");
-    select.innerHTML = '';
 
-    // Create a map to group options by category
-    var categoryMap = new Map();
+    // Create an array to store options
+    var optionsArray = Array.from(select.options);
 
-    // Sort options alphabetically and group them by category
-    availableOptions.sort(function (a, b) {
-        return a.name.localeCompare(b.name);
-    }).forEach(function (option) {
-        if (!categoryMap.has(option.category)) {
-            categoryMap.set(option.category, []);
-        }
-        categoryMap.get(option.category).push(option);
+    // Sort options alphabetically
+    optionsArray.sort(function (a, b) {
+        return a.text.localeCompare(b.text);
     });
 
+    // Create a set to track unique categories
+    var categorySet = new Set();
+
+    // Iterate through the sorted options and recreate the set
+    optionsArray.forEach(function (option) {
+        categorySet.add(option.text.substr(0,1));
+    });
+
+    // Clear the select
+    select.innerHTML = '';
+
     // Regenerate the options and categories
-    categoryMap.forEach(function (options, category) {
+    categorySet.forEach(function (currentCategory) {
+        // Filter options based on the current category
+        var optionsInCategory = optionsArray.filter(function (option) {
+            return option.text.substr(0,1) === currentCategory;
+        });
+
+        // Create an optgroup for the current category
         var optgroup = document.createElement("optgroup");
-        optgroup.label = category;
+        optgroup.label = currentCategory;
         select.appendChild(optgroup);
 
-        options.forEach(function (option) {
-            var optionElement = document.createElement("option");
-            optionElement.value = option.id;
-            optionElement.text = option.name;
-            optgroup.appendChild(optionElement);
+        // Append options to the optgroup
+        optionsInCategory.forEach(function (option) {
+            select.appendChild(option);
         });
     });
 }
+
+sortAndRegenerateSelect(); // You may need to pass the initial product details if needed
