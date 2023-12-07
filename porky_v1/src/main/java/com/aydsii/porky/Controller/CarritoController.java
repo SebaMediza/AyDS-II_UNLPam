@@ -6,7 +6,7 @@ import java.util.Vector;
 import com.aydsii.porky.Main;
 import com.aydsii.porky.DAO.FireBaseDAO;
 import com.aydsii.porky.DAO.ProductoDAO;
-import com.aydsii.porky.model.Producto;
+import com.aydsii.porky.Models.Producto;
 
 import spark.ModelAndView;
 import spark.Request;
