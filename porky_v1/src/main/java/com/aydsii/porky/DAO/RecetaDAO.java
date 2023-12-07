@@ -5,7 +5,7 @@ import java.util.List;
 import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
 
-import com.aydsii.porky.model.Receta;
+import com.aydsii.porky.Models.Receta;
 
 public class RecetaDAO {
     public static List<Receta> receta(int ID_PRODUCTO){
