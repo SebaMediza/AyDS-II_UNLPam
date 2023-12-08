@@ -1,15 +1,6 @@
-@font-face {
-    font-family: Quicksand Light;
-    src: url(fuentes/Light.ttf);
-}
-@font-face {
-    font-family: Quicksand Medium;
-    src: url(fuentes/Medium.ttf);
-}
-
 body{
     margin: 0px;
-    font-family: Quicksand Regular;
+    font-family: 'Quicksand', sans-serif;
     text-align: center;
     display: flex;
     flex: 1 0 0;
@@ -108,7 +99,7 @@ button:hover{
 }
 
 .tab_container{
-    font-family: Quicksand SemiBold;
+    font-weight: bolder;
     font-size: medium;
     width: 100%;
     height: 7vh;
