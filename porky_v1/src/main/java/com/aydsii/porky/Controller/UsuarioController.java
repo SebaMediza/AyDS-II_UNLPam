@@ -3,6 +3,9 @@ package com.aydsii.porky.Controller;
 import java.util.HashMap;
 
 import com.aydsii.porky.Main;
+import com.aydsii.porky.DAO.FireBaseDAO;
+import com.aydsii.porky.DAO.ProductoDAO;
+import com.aydsii.porky.Models.Producto;
 
 import lombok.extern.slf4j.Slf4j;
 import spark.ModelAndView;
@@ -13,9 +16,14 @@ import spark.template.velocity.VelocityTemplateEngine;
 
 @SuppressWarnings("unchecked")
 @Slf4j
-public class ClienteController {
+public class UsuarioController {
+    private ProductoDAO productoDAO;
+    private FireBaseDAO fireBaseDAO;
 
-    public ClienteController() {}
+    public UsuarioController(ProductoDAO productoDAO, FireBaseDAO fireBaseDAO) {
+        this.productoDAO = productoDAO;
+        this.fireBaseDAO = fireBaseDAO;
+    }
 
     final static String adminUid = "Am0dLzqsvDVhyhhwLXbob4m484y2";
 
@@ -98,5 +106,25 @@ public class ClienteController {
         HashMap model = new HashMap();
         model.put("template", "template\\indice.vsl");
         return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout.vsl"));
+    };
+    @SuppressWarnings("rawtypes")
+    public Route admin = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        model.put("template","template/admin.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
+    };
+
+    @SuppressWarnings("rawtypes")
+    public Route sobreMi = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        model.put("template","template/sobreMi.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
+    };
+    
+    @SuppressWarnings("rawtypes")
+    public Route encargos = (Request request, Response response) -> {
+        HashMap model = new HashMap();
+        model.put("template","template/encargos.vsl");
+        return new VelocityTemplateEngine().render(new ModelAndView(model, "template/layout2.vsl"));
     };
 }

@@ -8,10 +8,9 @@ import spark.Session;
 
 import com.aydsii.porky.AbtractFactory.DAOFactory;
 import com.aydsii.porky.Controller.CarritoController;
-import com.aydsii.porky.Controller.AdminController;
-import com.aydsii.porky.Controller.ClienteController;
 import com.aydsii.porky.Controller.PresupuestoController;
 import com.aydsii.porky.Controller.ProductoController;
+import com.aydsii.porky.Controller.UsuarioController;
 import com.aydsii.porky.DAO.FireBaseDAO;
 import com.aydsii.porky.DAO.PresupuestoDAO;
 import com.aydsii.porky.DAO.ProductoDAO;
@@ -27,35 +26,33 @@ public class Main {
         FireBaseDAO fireBaseDAO = daoFactory.getFireBaseDAO();
         PresupuestoDAO presupuestoDAO = daoFactory.getPresupuestoDAO();
 
-        ClienteController controladorCliente = new ClienteController();
-        ProductoController productoControlador = new ProductoController(productoDAO, fireBaseDAO);
+        UsuarioController usuarioController = new UsuarioController(productoDAO, fireBaseDAO);
+        ProductoController productoController = new ProductoController(productoDAO, fireBaseDAO);
         CarritoController carritoController = new CarritoController(productoDAO, fireBaseDAO);
-        AdminController controladorAdmin = new AdminController(productoDAO, fireBaseDAO);
         PresupuestoController presupuestoController = new PresupuestoController(productoDAO, presupuestoDAO, fireBaseDAO);
         
         staticFiles.location("/public");
         //Lado del Cliente
-        get("/home", controladorCliente.indice);
-        get("/login", controladorCliente.logIn);
-        get("/login", controladorCliente.logIn);
-        get("/singup", controladorCliente.singUp);
-        get("/logout", controladorCliente.logOut);
+        get("/home", usuarioController.indice);
+        get("/login", usuarioController.logIn);
+        get("/singup", usuarioController.singUp);
+        get("/logout", usuarioController.logOut);
         //Presupuesto
         get("/presupuesto", presupuestoController.crearPresupuesto);
         post("/enviarPresupuesto", "application/json", presupuestoController.enviarPresupuesto);
         //Productos
-        get("/productos", productoControlador.listarProductos);
-        get("/producto", productoControlador.buscarNombre);
-        get("/masinfo", productoControlador.masInformacion);
+        get("/productos", productoController.listarProductos);
+        get("/producto", productoController.buscarNombre);
+        get("/masinfo", productoController.masInformacion);
+        get("/admin/productos", productoController.adminProductos);
+        get("/admin/productos/crear", productoController.crearProducto);
+        get("/admin/productos/cargar", productoController.cargarProducto);
         //Carrito
-        get("/carrito", carritoController.cargarCarrito);
-        get("/micarrito", carritoController.verCarrito);
+        get("/cargarCarrito", carritoController.cargarCarrito);
+        get("/verCarrito", carritoController.verCarrito);
         //Lado del administrador
-        get("/admin", controladorAdmin.admin);
-        get("/admin/productos", controladorAdmin.adminProductos);
-        get("/admin/sobremi", controladorAdmin.sobreMi);
-        get("/admin/encargos", controladorAdmin.encargos);
-        get("/admin/productos/agregar", controladorAdmin.addProducto);
-        get("/admin/agregado", controladorAdmin.productoAgregado);
+        get("/admin", usuarioController.admin);
+        get("/admin/sobremi", usuarioController.sobreMi);
+        get("/admin/encargos", usuarioController.encargos);
     }
 }
