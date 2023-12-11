@@ -3,8 +3,8 @@ package com.aydsii.porky.Controller;
 import java.util.HashMap;
 
 import com.aydsii.porky.Main;
-import com.aydsii.porky.DAO.FireBaseDAO;
-import com.aydsii.porky.DAO.ProductoDAO;
+import com.aydsii.porky.FirebaseDAO.FireBaseDAO;
+import com.aydsii.porky.FirebaseDAO.ProductoDAO;
 import com.aydsii.porky.Models.Producto;
 
 import spark.ModelAndView;
@@ -25,6 +25,7 @@ public class ProductoController {
 
     @SuppressWarnings("rawtypes")
     public Route listarProductos = (Request request, Response response) -> {
+    
         String layout = "";
         HashMap model = new HashMap();
         HashMap<Integer, Producto> RES = productoDAO.listarProductos(fireBaseDAO.connectToDB());

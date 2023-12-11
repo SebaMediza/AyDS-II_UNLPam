@@ -5,11 +5,16 @@ import java.util.List;
 
 import org.checkerframework.checker.units.qual.K;
 
-public interface GenericDAO<K extends Serializable, T> 
-{
-    public K create(T value);
-    public List<T> getAll();
-    public T getById(K id);
-    public void update(K id,T value);
-    public void delete(T value);
+public abstract class GenericDAO <K extends Serializable, T> {
+    protected Object connection;
+
+    public GenericDAO(Object connection){
+        this.connection = connection;
+    }
+
+    public abstract K create(T model);
+    public abstract List<T> getAll();
+    public abstract T getById(K id);
+    public abstract void update(K id,T model);
+    public abstract void delete(K id);
 }

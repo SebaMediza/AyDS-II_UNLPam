@@ -1,4 +1,4 @@
-package com.aydsii.porky.DAO;
+package com.aydsii.porky.SQLDAO;
 
 import java.util.List;
 import org.sql2o.Connection;

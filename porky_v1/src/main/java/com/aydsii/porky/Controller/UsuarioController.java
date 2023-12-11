@@ -3,8 +3,8 @@ package com.aydsii.porky.Controller;
 import java.util.HashMap;
 
 import com.aydsii.porky.Main;
-import com.aydsii.porky.DAO.FireBaseDAO;
-import com.aydsii.porky.DAO.ProductoDAO;
+import com.aydsii.porky.FirebaseDAO.FireBaseDAO;
+import com.aydsii.porky.FirebaseDAO.ProductoDAO;
 import com.aydsii.porky.Models.Producto;
 
 import lombok.extern.slf4j.Slf4j;
